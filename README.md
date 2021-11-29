@@ -1,4 +1,4 @@
-# Depsylab
+# dePsyLab
 
 Details TBA.
 
