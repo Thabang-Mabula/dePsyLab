@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavButtonComponent } from './nav-button.component';
+import { NavButtonComponent } from './journey-nav-button.component';
 
 describe('NavButtonComponent', () => {
   let component: NavButtonComponent;
