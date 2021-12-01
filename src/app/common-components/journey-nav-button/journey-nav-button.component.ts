@@ -5,7 +5,7 @@ import { Component, Directive, Input, OnInit } from '@angular/core';
   templateUrl: './journey-nav-button.component.html',
   styleUrls: ['./journey-nav-button.component.css'],
 })
-export class NavButtonComponent implements OnInit {
+export class JourneyNavButtonComponent implements OnInit {
   @Input('nav-url') navUrl: String = '/';
   @Input('h-align') horizontalAlign: String = 'left';
 
