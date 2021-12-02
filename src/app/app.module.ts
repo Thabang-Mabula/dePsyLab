@@ -5,15 +5,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CenterDivComponent } from './common-components/center-div/center-div.component';
 import { JourneyNavButtonComponent } from './common-components/journey-nav-button/journey-nav-button.component';
-import { DecisionMapModule } from './decision-map/decision-map.module';
+import { DecisionMatrixModule } from './decision-matrix/decision-matrix.module';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/decision-map/start', pathMatch: 'full' },
+  { path: '', redirectTo: '/decision-matrix/start', pathMatch: 'full' },
 ];
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes), DecisionMapModule],
+  imports: [BrowserModule, RouterModule.forRoot(routes), DecisionMatrixModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DecisionMapStartComponent } from './decision-map-start.component';
+import { NewTitlePageComponent } from './new-title-page.component';
 
-describe('DecisionMapStartComponent', () => {
-  let component: DecisionMapStartComponent;
-  let fixture: ComponentFixture<DecisionMapStartComponent>;
+describe('NewTitlePageComponent', () => {
+  let component: NewTitlePageComponent;
+  let fixture: ComponentFixture<NewTitlePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DecisionMapStartComponent ]
+      declarations: [ NewTitlePageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DecisionMapStartComponent);
+    fixture = TestBed.createComponent(NewTitlePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,5 @@
 import { Component, Directive, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'journey-nav-button',
@@ -9,11 +10,11 @@ export class JourneyNavButtonComponent implements OnInit {
   @Input('nav-url') navUrl: String = '/';
   @Input('h-align') horizontalAlign: String = 'left';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   navigate() {
-    console.log('Navigating to url: ' + this.navUrl);
+    this.router.navigateByUrl(this.navUrl.toString());
   }
 }
