@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { MockDecisionMatrixServiceService } from './mock-decision-matrix-service.service';
+import { MockDecisionMatrixService } from './mock-decision-matrix.service';
 
 describe('Service: MockDecisionMatrixService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [MockDecisionMatrixServiceService]
+      providers: [MockDecisionMatrixService]
     });
   });
 
-  it('should ...', inject([MockDecisionMatrixServiceService], (service: MockDecisionMatrixServiceService) => {
+  it('should ...', inject([MockDecisionMatrixService], (service: MockDecisionMatrixService) => {
     expect(service).toBeTruthy();
   }));
 });
