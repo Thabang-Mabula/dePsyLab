@@ -16,9 +16,9 @@ export class DecisionMatrixStartComponent implements OnInit {
   ngOnInit(): void {}
 
   generateRoute(): string {
-    return `/${RoutesEnum.CONTEXT_ROOT}/${this.obtainNewItemId()}/${
+    return `/${RoutesEnum.CONTEXT_ROOT}/${
       RoutesEnum.TITLE
-    }`;
+    }?id=${this.obtainNewItemId()}`;
   }
 
   private obtainNewItemId(): string {
