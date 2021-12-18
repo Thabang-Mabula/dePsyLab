@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { RoutesEnum } from '../../constants/routes-enum.enum';
+import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
 import { DecisionMatrixServiceInterface } from '../../services/decision-matrix-service-interface';
 import { DecisionMatrixService } from '../../services/decision-matrix.service';
 import { DecisionMatrixAbstractService } from '../../services/decision-matrix-abstract-service';
@@ -16,8 +16,8 @@ export class DecisionMatrixStartComponent implements OnInit {
   ngOnInit(): void {}
 
   generateRoute(): string {
-    return `/${RoutesEnum.CONTEXT_ROOT}/${
-      RoutesEnum.TITLE
+    return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${
+      DecisionMatrixRoutesEnum.TITLE
     }?id=${this.obtainNewItemId()}`;
   }
 

@@ -1,6 +1,6 @@
 import { DecisionMatrixService } from '../../services/decision-matrix.service';
 import { MockEnum } from '../../constants/mock-enum.enum';
-import { RoutesEnum } from '../../constants/routes-enum.enum';
+import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DecisionMatrixStartComponent } from './decision-matrix-start.component';

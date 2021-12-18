@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DecisionMatrixAbstractService } from '../../services/decision-matrix-abstract-service';
 import { ParamEnum } from '../../constants/param-enum.enum';
 import { DecisionMatrix } from '../../entities/decision-matrix';
-import { RoutesEnum } from '../../constants/routes-enum.enum';
+import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
 
 @Component({
   selector: 'app-new-title-page',
@@ -45,6 +45,6 @@ export class NewTitlePageComponent implements OnInit {
   }
 
   private generateNextURL(id: string): string {
-    return `/${RoutesEnum.CONTEXT_ROOT}/${RoutesEnum.TITLE}?id=${id}`;
+    return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${DecisionMatrixRoutesEnum.OPTIONS}?id=${id}`;
   }
 }
