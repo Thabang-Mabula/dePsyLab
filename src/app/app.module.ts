@@ -11,6 +11,7 @@ import { DecisionMatrixServiceInterface } from './decision-matrix/services/decis
 import { MockDecisionMatrixService } from './decision-matrix/services/mock-decision-matrix.service';
 import { DecisionMatrixAbstractService } from './decision-matrix/services/decision-matrix-abstract-service';
 import { environment } from 'src/environments/environment';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', redirectTo: '/decision-matrix/start', pathMatch: 'full' },
@@ -18,7 +19,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes), DecisionMatrixModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+    DecisionMatrixModule,
+  ],
   providers: [...environment.providers],
   bootstrap: [AppComponent],
 })

@@ -3,11 +3,13 @@
     What are the possible options that you're considering?
   </h3>
   <div class="form-group">
-    <input type="text" class="form-control" name="title" aria-describedby="helpId"
+    <input type="text" class="form-control" name="title" aria-describedby="helpId" [(ngModel)]="optionDescription"
       placeholder="E.g. Prof Xavier's School for The Young and Gifted">
     <!-- <small id="helpId" class="form-text text-muted">Enter a title for the new decision</small> -->
-    <button type="button" name="" id="" class="btn btn-primary" style="float: right; display: inline;"> Add </button>
+    <button type="button" class="btn btn-primary inline-right" (click)="addOption()"> Add </button>
   </div>
+
+  <options-display [decision-matrix]="decisionMatrix"></options-display>
 
   <page-nav-button h-align="center" class="div-content-centre" (click)="submit()">Next</page-nav-button>
 

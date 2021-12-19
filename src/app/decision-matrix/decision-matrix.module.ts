@@ -7,6 +7,8 @@ import { DecisionMatrixComponent } from './components/decision-matrix/decision-m
 import { NewTitlePageComponent } from './pages/new-title-page/new-title-page.component';
 import { OptionsPageComponent } from './pages/options-page/options-page.component';
 import { DecisionMatrixRoutesEnum } from './constants/decision-matrix-routes-enum.enum';
+import { OptionsDisplayComponent } from './components/options-display/options-display.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -34,8 +36,14 @@ const routes: Routes = [
     DecisionMatrixStartComponent,
     DecisionMatrixComponent,
     NewTitlePageComponent,
-    OptionsPageComponent
+    OptionsPageComponent,
+    OptionsDisplayComponent,
   ],
-  imports: [CommonModule, RouterModule.forRoot(routes), CommonComponentsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+    CommonComponentsModule,
+  ],
 })
 export class DecisionMatrixModule {}

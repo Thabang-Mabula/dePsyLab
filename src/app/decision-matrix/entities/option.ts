@@ -5,7 +5,13 @@ export class Option {
   public get id(): number | undefined {
     return this._id;
   }
+  
   public set id(value: number | undefined) {
+    // TODO implement null check
+    // TODO create a custom error for illegal arguments
+    if (value! < 0) {
+      throw Error('Value must be a positive integer');
+    }
     this._id = value;
   }
 
