@@ -48,6 +48,6 @@ export class DecisionMatrix {
       if (option.id! > maxOptionId!) maxOptionId = option.id!;
     });
 
-    return maxOptionId++;
+    return ++maxOptionId;
   }
 }

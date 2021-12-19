@@ -9,6 +9,7 @@ import { OptionsPageComponent } from './pages/options-page/options-page.componen
 import { DecisionMatrixRoutesEnum } from './constants/decision-matrix-routes-enum.enum';
 import { OptionsDisplayComponent } from './components/options-display/options-display.component';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   {
@@ -42,6 +43,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    FontAwesomeModule,
     RouterModule.forRoot(routes),
     CommonComponentsModule,
   ],

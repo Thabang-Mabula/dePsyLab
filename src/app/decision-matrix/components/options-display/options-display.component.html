@@ -1,5 +1,17 @@
+<h4 *ngIf="getOptions().length > 0"> Options </h4>
+
+
 <div class="options-display">
-  <ul>
-    <li *ngFor="let option of getOptions()"> {{option.description}} </li>
-  </ul>
+  <table class="options-table">
+    <tbody>
+      <tr *ngFor="let option of getOptions()">
+        <td class="option-id-column"> {{option.id}}) </td>
+        <!-- TODO create a pipe for this description that limits the no. of characters -->
+        <td class="option-description-column"> {{option.description}} </td>
+        <td class="option-delete-column">
+          <fa-icon [icon]="faTrash" (click)="deleteOption(option.id!)"></fa-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

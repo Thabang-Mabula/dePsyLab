@@ -12,6 +12,7 @@ import { MockDecisionMatrixService } from './decision-matrix/services/mock-decis
 import { DecisionMatrixAbstractService } from './decision-matrix/services/decision-matrix-abstract-service';
 import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   { path: '', redirectTo: '/decision-matrix/start', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    FontAwesomeModule,
     RouterModule.forRoot(routes),
     DecisionMatrixModule,
   ],
