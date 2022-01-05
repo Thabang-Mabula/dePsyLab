@@ -1,3 +1,4 @@
+import { Option } from './../../entities/option';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
@@ -51,4 +52,6 @@ export class OptionsPageComponent implements OnInit {
       this.decisionMatrix?.addOption(this.optionDescription.trim());
     }
   }
+
+  
 }

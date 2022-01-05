@@ -24,7 +24,10 @@ export class OptionsDisplayComponent implements OnInit {
   }
 
   deleteOption(optionId: number): void {
-    // TODO emit an event that triggers the deletion of this option id
-    console.log('Emit an event to delete option id: ' + optionId);
+    this._decisionMatrix!.options = this._decisionMatrix!.options.filter(
+      (option: Option) => {
+        return option.id != optionId;
+      }
+    );
   }
 }

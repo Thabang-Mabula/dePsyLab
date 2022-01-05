@@ -23,7 +23,9 @@ export class DecisionMatrix {
     this._title = value;
   }
 
-  public set options(options: Array<Option>) {}
+  public set options(options: Array<Option>) {
+    this._options = options;
+  }
 
   public get options(): Array<Option> {
     return this._options;
