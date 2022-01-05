@@ -4,8 +4,8 @@
 <div class="options-display">
   <table class="options-table">
     <tbody>
-      <tr *ngFor="let option of getOptions()">
-        <td class="option-id-column"> {{option.id}}) </td>
+      <tr *ngFor="let option of getOptions(); index as i">
+        <td class="option-number-column"> {{i + 1}}) </td>
         <!-- TODO create a pipe for this description that limits the no. of characters -->
         <td class="option-description-column"> {{option.description}} </td>
         <td class="option-delete-column">
