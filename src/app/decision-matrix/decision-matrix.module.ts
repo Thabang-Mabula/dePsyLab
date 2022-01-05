@@ -10,6 +10,7 @@ import { DecisionMatrixRoutesEnum } from './constants/decision-matrix-routes-enu
 import { OptionsDisplayComponent } from './components/options-display/options-display.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AssessOptionsPageComponent } from './pages/assess-options-page/assess-options-page.component';
 
 const routes: Routes = [
   {
@@ -17,16 +18,22 @@ const routes: Routes = [
     component: DecisionMatrixComponent,
     children: [
       {
+        // TODO : use enum
         path: 'start',
         component: DecisionMatrixStartComponent,
       },
       {
+        // TODO :  use enum
         path: 'title',
         component: NewTitlePageComponent,
       },
       {
         path: DecisionMatrixRoutesEnum.OPTIONS,
         component: OptionsPageComponent,
+      },
+      {
+        path: DecisionMatrixRoutesEnum.ASSESS_OPTIONS,
+        component: AssessOptionsPageComponent,
       },
     ],
   },

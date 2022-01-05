@@ -35,12 +35,11 @@ export class OptionsPageComponent implements OnInit {
   ngOnInit(): void {}
 
   submit(): void {
-    // this._decisionMatrix.title = this._title;
-    // this.decisionMatrixService
-    //   .updateDecisionMatrix(this._decisionMatrix)
-    //   .subscribe((res) => {
-    //     this.navigateNext(this.generateNextURL(this._decisionMatrix.id!));
-    //   });
+    this.decisionMatrixService
+      .updateDecisionMatrix(this.decisionMatrix)
+      .subscribe((res) => {
+        this.navigateNext(this.generateNextURL(this.decisionMatrix.id!));
+      });
   }
 
   addOption() {
@@ -53,5 +52,11 @@ export class OptionsPageComponent implements OnInit {
     }
   }
 
-  
+  private navigateNext(url: string): void {
+    this.router.navigateByUrl(url);
+  }
+
+  private generateNextURL(id: string): string {
+    return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${DecisionMatrixRoutesEnum.ASSESS_OPTIONS}?id=${id}`;
+  }
 }
