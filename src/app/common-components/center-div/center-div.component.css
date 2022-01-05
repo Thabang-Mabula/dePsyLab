@@ -3,9 +3,11 @@ div {
 }
 .center {
   position: absolute;
-  top: 50%;
+  margin-top: 30vh;
+  margin-left: 15vw;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 .center-content {
