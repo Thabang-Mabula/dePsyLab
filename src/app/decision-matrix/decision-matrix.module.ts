@@ -11,6 +11,7 @@ import { OptionsDisplayComponent } from './components/options-display/options-di
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AssessOptionsPageComponent } from './pages/assess-options-page/assess-options-page.component';
+import { AssessOptionsComponent } from './components/assess-options/assess-options.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,8 @@ const routes: Routes = [
     NewTitlePageComponent,
     OptionsPageComponent,
     OptionsDisplayComponent,
+    AssessOptionsPageComponent,
+    AssessOptionsComponent,
   ],
   imports: [
     CommonModule,
