@@ -1,0 +1,21 @@
+.assess-options-wrapper {
+  margin-top: 10vh;
+}
+
+.option-description-wrapper {
+  text-align: center;
+  margin-bottom: 10vh;
+}
+
+table {
+  text-align: center;
+  margin-left: 15vw;
+  margin-bottom: 5vh;
+}
+
+.criteria-table-header {
+  padding: 1em 0.5em;
+}
+.options-col {
+  width: 40vw;
+}

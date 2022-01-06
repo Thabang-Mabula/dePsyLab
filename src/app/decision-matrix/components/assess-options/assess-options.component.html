@@ -2,13 +2,20 @@
   <div class="option-description-wrapper">
     Option blah blah blah
   </div>
+
+
   <table>
+    <colgroup>
+      <col class="options-col">
+      <col class="score-col">
+      <!-- repeat as many cols as the number of headers -->
+    </colgroup>
     <!-- Header -->
     <tr>
-      <th>
-        Option
+      <th class="criteria-table-header">
+        Criteria
       </th>
-      <th>
+      <th class="criteria-table-header">
         Score (1 - 3)
       </th>
     </tr>
@@ -18,11 +25,11 @@
         Criterion
       </td>
       <td>
-        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+        <input type="text score-input" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
       </td>
     </tr>
 
   </table>
 
-  <button type="button" class="btn btn-primary">Next Option</button>
+  <page-nav-button h-align="center"> Next option </page-nav-button>
 </div>
