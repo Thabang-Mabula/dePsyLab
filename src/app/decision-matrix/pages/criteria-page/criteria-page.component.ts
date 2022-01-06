@@ -1,50 +1,49 @@
 import { Component, OnInit } from '@angular/core';
+import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DecisionMatrixAbstractService } from '../../services/decision-matrix-abstract-service';
 import { ParamEnum } from '../../constants/param-enum.enum';
 import { DecisionMatrix } from '../../entities/decision-matrix';
-import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
 
 @Component({
-  selector: 'app-new-title-page',
-  templateUrl: './new-title-page.component.html',
-  styleUrls: ['./new-title-page.component.css'],
+  selector: 'criteria-page',
+  templateUrl: './criteria-page.component.html',
+  styleUrls: ['./criteria-page.component.css'],
 })
-export class NewTitlePageComponent implements OnInit {
-  private _decisionMatrix: DecisionMatrix = new DecisionMatrix();
-  private _title: string = '';
+export class CriteriaPageComponent implements OnInit {
+  criterionDescription: string = '';
+  decisionMatrix: DecisionMatrix = new DecisionMatrix();
 
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
+    // TODO generalise this into a common method in a util and re-use instead of copy/pasting
+    // TODO move this code to the ngOnInit everywhere
     this.activatedRoute.queryParams.subscribe((params) => {
       let decisionMatrixId = params[ParamEnum.DECISION_MATRIX_ID];
       this.decisionMatrixService
         .getDecisionMatrix(decisionMatrixId)
         .subscribe((decisionMatrix) => {
-          this._decisionMatrix = decisionMatrix;
+          this.decisionMatrix = decisionMatrix;
         });
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
-  submitTitle(): void {
-    this._decisionMatrix.title = this._title;
-    this.decisionMatrixService
-      .updateDecisionMatrix(this._decisionMatrix)
-      .subscribe((res) => {
-        this.navigateNext(this.generateNextURL(this._decisionMatrix.id!));
-      });
+  submit() {
+    this.navigateNext(this.generateNextURL(this.decisionMatrix.id!));
   }
+
+  addCriterion() {}
 
   private navigateNext(url: string): void {
     this.router.navigateByUrl(url);
   }
 
   private generateNextURL(id: string): string {
-    return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${DecisionMatrixRoutesEnum.CRITERIA}?id=${id}`;
+    return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${DecisionMatrixRoutesEnum.OPTIONS}?id=${id}`;
   }
 }

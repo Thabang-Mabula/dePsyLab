@@ -1,0 +1,17 @@
+<center-div [center-content]="true">
+  <h3>
+    What are the values/crtieria that are important to you in making this decision?
+  </h3>
+  <div class="form-group">
+    <input type="text" class="form-control" name="title" aria-describedby="helpId" [(ngModel)]="criterionDescription"
+      placeholder="E.g. Quality of education">
+    <!-- <small id="helpId" class="form-text text-muted">Enter a title for the new decision</small> -->
+    <button type="button" class="btn btn-primary inline-right" (click)="addCriterion()"> Add </button>
+  </div>
+
+  <!-- <options-display [decision-matrix]="decisionMatrix"></options-display> -->
+
+  <page-nav-button h-align="center" class="div-content-centre" (click)="submit()">Next</page-nav-button>
+
+
+</center-div>

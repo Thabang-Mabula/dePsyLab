@@ -1,0 +1,13 @@
+h3 {
+  text-align: center;
+}
+
+.inline-right {
+  float: right;
+  display: inline;
+}
+
+input[type="text"] {
+  width: 90%;
+  display: inline;
+}

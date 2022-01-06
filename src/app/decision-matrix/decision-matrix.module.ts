@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AssessOptionsPageComponent } from './pages/assess-options-page/assess-options-page.component';
 import { AssessOptionsComponent } from './components/assess-options/assess-options.component';
+import { CriteriaPageComponent } from './pages/criteria-page/criteria-page.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
         // TODO :  use enum
         path: 'title',
         component: NewTitlePageComponent,
+      },
+      {
+        path: DecisionMatrixRoutesEnum.CRITERIA,
+        component: CriteriaPageComponent,
       },
       {
         path: DecisionMatrixRoutesEnum.OPTIONS,
@@ -49,6 +54,7 @@ const routes: Routes = [
     OptionsDisplayComponent,
     AssessOptionsPageComponent,
     AssessOptionsComponent,
+    CriteriaPageComponent,
   ],
   imports: [
     CommonModule,
