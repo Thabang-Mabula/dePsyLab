@@ -13,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AssessOptionsPageComponent } from './pages/assess-options-page/assess-options-page.component';
 import { AssessOptionsComponent } from './components/assess-options/assess-options.component';
 import { CriteriaPageComponent } from './pages/criteria-page/criteria-page.component';
+import { EditableListDisplayComponent } from './components/editable-list-display/editable-list-display.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,7 @@ const routes: Routes = [
     AssessOptionsPageComponent,
     AssessOptionsComponent,
     CriteriaPageComponent,
+    EditableListDisplayComponent
   ],
   imports: [
     CommonModule,
