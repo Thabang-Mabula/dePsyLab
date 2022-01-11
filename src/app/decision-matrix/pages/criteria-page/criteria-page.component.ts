@@ -37,7 +37,10 @@ export class CriteriaPageComponent implements OnInit {
     this.navigateNext(this.generateNextURL(this.decisionMatrix.id!));
   }
 
-  addCriterion() {}
+  addCriterion() {
+    this.decisionMatrix.addCriterion(this.criterionDescription);
+    console.log('Existing criteria: ' + this.decisionMatrix.criteria);
+  }
 
   private navigateNext(url: string): void {
     this.router.navigateByUrl(url);

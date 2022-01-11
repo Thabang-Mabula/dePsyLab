@@ -1,0 +1,14 @@
+<div class="list-display">
+  <table class="list-table">
+    <tbody>
+      <tr *ngFor="let element of editableList; index as i">
+        <td class="item-number-column"> {{i + 1}}) </td>
+        <!-- TODO create a pipe for this description that limits the no. of characters -->
+        <td class="item-description-column"> {{element.description}} </td>
+        <td class="item-delete-column">
+          <fa-icon [icon]="faTrash" (click)="delete(i)"></fa-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

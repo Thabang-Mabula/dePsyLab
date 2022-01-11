@@ -9,7 +9,7 @@
     <button type="button" class="btn btn-primary inline-right" (click)="addCriterion()"> Add </button>
   </div>
 
-  <!-- <options-display [decision-matrix]="decisionMatrix"></options-display> -->
+  <editable-list-display [list]="decisionMatrix.criteria"></editable-list-display>
 
   <page-nav-button h-align="center" class="div-content-centre" (click)="submit()">Next</page-nav-button>
 
