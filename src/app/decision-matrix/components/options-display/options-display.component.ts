@@ -8,6 +8,8 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './options-display.component.html',
   styleUrls: ['./options-display.component.css'],
 })
+
+// TODO Delete and use the editable list component generalisation
 export class OptionsDisplayComponent implements OnInit {
   @Input('decision-matrix') _decisionMatrix: DecisionMatrix | undefined;
   faTrash = faTrash;
