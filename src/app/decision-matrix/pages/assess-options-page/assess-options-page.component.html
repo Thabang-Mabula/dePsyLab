@@ -1,5 +1,7 @@
 <div class="assess-options-page-wrapper">
-  <h3> Indicate the extent to which the following option meets the following criterion: </h3>
+  <h3> Indicate the extent to which the following option meets your criteria: </h3>
 
-  <assess-options></assess-options>
+  <assess-options [option]="currentOption" [criteria]="decisionMatrix.criteria"></assess-options>
+
+  <page-nav-button h-align="center" (click)="loadNextOption()"> Next option </page-nav-button>
 </div>

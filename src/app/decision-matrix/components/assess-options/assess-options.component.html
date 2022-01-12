@@ -1,6 +1,6 @@
 <div class="assess-options-wrapper">
   <div class="option-description-wrapper">
-    Option blah blah blah
+    {{option.description}}
   </div>
 
 
@@ -20,9 +20,9 @@
       </th>
     </tr>
 
-    <tr>
+    <tr *ngFor="let criterion of criteria">
       <td>
-        Criterion
+        {{criterion.description}}
       </td>
       <td>
         <input type="text" class="score-input">
@@ -31,5 +31,5 @@
 
   </table>
 
-  <page-nav-button h-align="center"> Next option </page-nav-button>
+
 </div>

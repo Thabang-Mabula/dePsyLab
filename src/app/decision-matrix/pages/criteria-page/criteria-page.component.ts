@@ -34,7 +34,11 @@ export class CriteriaPageComponent implements OnInit {
   ngOnInit() {}
 
   submit() {
-    this.navigateNext(this.generateNextURL(this.decisionMatrix.id!));
+    this.decisionMatrixService
+      .updateDecisionMatrix(this.decisionMatrix)
+      .subscribe((res) => {
+        this.navigateNext(this.generateNextURL(this.decisionMatrix.id!));
+      });
   }
 
   addCriterion() {
