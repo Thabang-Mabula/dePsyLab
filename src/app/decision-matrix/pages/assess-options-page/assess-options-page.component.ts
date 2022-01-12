@@ -14,6 +14,7 @@ export class AssessOptionsPageComponent implements OnInit {
   private _decisionMatrix = new DecisionMatrix();
   private _optionIterator: Iterator<Option> | null = null;
   private _currentOption: Option = new Option();
+  private _hasNextOption: boolean = true;
 
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
@@ -48,14 +49,26 @@ export class AssessOptionsPageComponent implements OnInit {
     this._currentOption = option;
   }
 
+  get hasNextOption(): boolean {
+    return this._hasNextOption;
+  }
+
+  set hasNextOption(hasNext: boolean) {
+    this._hasNextOption = hasNext;
+  }
+
   private setNextOption(): void {
     let next = this._optionIterator!.next();
     if (!next!.done) {
       this.currentOption = next!.value;
+    } else {
+      this.hasNextOption = false;
     }
   }
 
-  loadNextOption() : void {
-    this.setNextOption()
+  loadNextOption(): void {
+    if (this.hasNextOption) {
+      this.setNextOption();
+    }
   }
 }

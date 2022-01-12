@@ -3,5 +3,6 @@
 
   <assess-options [option]="currentOption" [criteria]="decisionMatrix.criteria"></assess-options>
 
-  <page-nav-button h-align="center" (click)="loadNextOption()"> Next option </page-nav-button>
+  <page-nav-button h-align="center" (click)="loadNextOption()" [disabled]="!hasNextOption"> Next option
+  </page-nav-button>
 </div>

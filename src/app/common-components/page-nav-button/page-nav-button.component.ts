@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PageNavButtonComponent implements OnInit {
   @Input('h-align') horizontalAlign: String = 'left';
-
+  @Input('disabled') isDisabled: boolean = false;
   constructor() {}
 
   ngOnInit() {}
