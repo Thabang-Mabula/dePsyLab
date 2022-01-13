@@ -12,9 +12,7 @@ import { Option } from '../../entities/option';
 })
 export class AssessOptionsPageComponent implements OnInit {
   private _decisionMatrix = new DecisionMatrix();
-  private _optionIterator: Iterator<Option> | null = null;
-  private _currentOption: Option = new Option();
-  private _hasNextOption: boolean = true;
+  private _optionIndex: number = 0;
 
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
@@ -28,8 +26,6 @@ export class AssessOptionsPageComponent implements OnInit {
       this.decisionMatrixService
     ).subscribe((decisionMatrix: DecisionMatrix) => {
       this.decisionMatrix = decisionMatrix;
-      this._optionIterator = this.decisionMatrix.options[Symbol.iterator]();
-      this.setNextOption();
     });
   }
 
@@ -42,33 +38,25 @@ export class AssessOptionsPageComponent implements OnInit {
   }
 
   get currentOption(): Option {
-    return this._currentOption;
+    return this.decisionMatrix.options[this._optionIndex];
   }
 
-  set currentOption(option: Option) {
-    this._currentOption = option;
+  goToNextOption() {
+    if (!this.isLastOption()) this._optionIndex++;
   }
 
-  get hasNextOption(): boolean {
-    return this._hasNextOption;
+  goToPreviousOption() {
+    if (!this.isFirstOption()) this._optionIndex--;
   }
 
-  set hasNextOption(hasNext: boolean) {
-    this._hasNextOption = hasNext;
+  isFirstOption() {
+    return this._optionIndex == 0;
   }
 
-  private setNextOption(): void {
-    let next = this._optionIterator!.next();
-    if (!next!.done) {
-      this.currentOption = next!.value;
-    } else {
-      this.hasNextOption = false;
-    }
-  }
-
-  loadNextOption(): void {
-    if (this.hasNextOption) {
-      this.setNextOption();
-    }
+  isLastOption() {
+    return (
+      this._optionIndex == this._decisionMatrix.options.length - 1 ||
+      this._decisionMatrix.options.length == 0
+    );
   }
 }

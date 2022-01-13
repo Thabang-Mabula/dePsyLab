@@ -8,3 +8,17 @@ h3 {
   margin-top: 15vh;
   text-align: center;
 }
+
+.navigation-button-wrapper {
+  margin-left: 35vw;
+}
+
+.option-nav-btn {
+  margin-left: 2em;
+  width: 7em;
+}
+
+button[disabled] {
+  background-color: gray;
+  border-color: antiquewhite;
+}

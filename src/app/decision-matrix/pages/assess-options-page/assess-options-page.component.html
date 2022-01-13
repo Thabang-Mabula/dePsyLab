@@ -3,6 +3,11 @@
 
   <assess-options [option]="currentOption" [criteria]="decisionMatrix.criteria"></assess-options>
 
-  <page-nav-button h-align="center" (click)="loadNextOption()" [disabled]="!hasNextOption"> Next option
-  </page-nav-button>
+  <div class="navigation-button-wrapper">
+    <button type="button" class="btn btn-primary option-nav-btn" [disabled]="isFirstOption()"
+      (click)="goToPreviousOption()"> Previous </button>
+    <button type="button" class="btn btn-primary option-nav-btn" [disabled]="isLastOption()" (click)="goToNextOption()">
+      Next </button>
+  </div>
+
 </div>
