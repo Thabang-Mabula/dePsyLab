@@ -4,6 +4,7 @@ import { DecisionMatrix } from '../../entities/decision-matrix';
 import { DecisionMatrixAbstractService } from '../../services/decision-matrix-abstract-service';
 import { DecisionMatrixServiceHelper } from '../../utils/decision-matrix-service-helper';
 import { Option } from '../../entities/option';
+import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
 
 @Component({
   selector: 'assess-options-page',
@@ -58,5 +59,22 @@ export class AssessOptionsPageComponent implements OnInit {
       this._optionIndex == this._decisionMatrix.options.length - 1 ||
       this._decisionMatrix.options.length == 0
     );
+  }
+
+  submit() {
+    this.decisionMatrixService
+      .updateDecisionMatrix(this.decisionMatrix)
+      .subscribe((res) => {
+        this.navigateNext(this.generateNextURL(this.decisionMatrix.id!));
+      });
+  }
+
+  private navigateNext(url: string): void {
+    this.router.navigateByUrl(url);
+  }
+
+  // TODO Create a util that does this for you
+  private generateNextURL(id: string): string {
+    return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${DecisionMatrixRoutesEnum.RESULTS}?id=${id}`;
   }
 }
