@@ -1,4 +1,5 @@
 export enum DecisionMatrixRoutesEnum {
+  START = 'start',
   CONTEXT_ROOT = 'decision-matrix',
   TITLE = 'title',
   CRITERIA = 'criteria',

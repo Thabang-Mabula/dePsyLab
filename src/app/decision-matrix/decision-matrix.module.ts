@@ -22,13 +22,16 @@ const routes: Routes = [
     component: DecisionMatrixComponent,
     children: [
       {
-        // TODO : use enum
-        path: 'start',
+        path: '',
+        redirectTo: DecisionMatrixRoutesEnum.START,
+        pathMatch: 'full',
+      },
+      {
+        path: DecisionMatrixRoutesEnum.START,
         component: DecisionMatrixStartComponent,
       },
       {
-        // TODO :  use enum
-        path: 'title',
+        path: DecisionMatrixRoutesEnum.TITLE,
         component: NewTitlePageComponent,
       },
       {
