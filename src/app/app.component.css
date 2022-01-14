@@ -1,11 +1,11 @@
 @media (orientation: landscape) {
   .app-content-wrapper {
-    padding-top: 5rem;
+    padding-top: 15vh;
   }
 }
 
 @media (orientation: portrait) {
   .app-content-wrapper {
-    padding-top: 10rem;
+    padding-top: 25vh;
   }
 }

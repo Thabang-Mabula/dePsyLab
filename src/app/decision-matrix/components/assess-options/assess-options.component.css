@@ -19,10 +19,10 @@ table {
   padding: 1em 0.5em;
 }
 .criteria-col {
-  width: 80%;
+  width: 75%;
 }
 
 .score-input {
-  width: 2.5rem;
+  width: 3rem;
   text-align: center;
 }
