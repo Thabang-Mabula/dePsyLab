@@ -1,26 +1,28 @@
 .assess-options-wrapper {
-  margin-top: 10vh;
+  margin-top: 0.5rem;
 }
 
 .option-description-wrapper {
   text-align: center;
-  margin-bottom: 10vh;
+  margin-bottom: 0.5rem;
 }
 
 table {
   text-align: center;
-  margin-left: 15vw;
-  margin-bottom: 5vh;
+  width: 100%;
+  table-layout: fixed;
+  /* margin-left: 15vw;
+  margin-bottom: 5vh; */
 }
 
 .criteria-table-header {
   padding: 1em 0.5em;
 }
-.options-col {
-  width: 40vw;
+.criteria-col {
+  width: 80%;
 }
 
 .score-input {
-  width: 5vw;
+  width: 2.5rem;
   text-align: center;
 }
