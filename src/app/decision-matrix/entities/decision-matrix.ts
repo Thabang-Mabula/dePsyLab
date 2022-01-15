@@ -10,6 +10,7 @@ const COLLECTION_STARTING_INDEX: number = 1;
 export class DecisionMatrix {
   private _title: string | undefined;
   private _options: Array<Option> = new Array<Option>();
+  // TODO change this to a number
   private _id: string | undefined;
   private _criteria: Array<Criterion> = new Array<Criterion>();
 

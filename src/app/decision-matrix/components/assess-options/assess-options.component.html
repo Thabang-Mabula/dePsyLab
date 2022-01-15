@@ -25,7 +25,8 @@
         {{criterion.description}}
       </td>
       <td>
-        <input type="text" class="score-input">
+        <!-- TODO use a pipe to display no score when score is -1 -->
+        <input type="text" class="score-input" value="{{ criterion.score }} ">
       </td>
     </tr>
 

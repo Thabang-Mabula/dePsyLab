@@ -4,6 +4,14 @@ import { DefaultDataTypeValueEnum } from '../../common-items/constants/default-d
 export class Criterion implements DescriptiveItem {
   private _id: number = DefaultDataTypeValueEnum.NUMBER;
   private _description: string = DefaultDataTypeValueEnum.STRING;
+  private _score: number = DefaultDataTypeValueEnum.NUMBER;
+
+  public get score(): number {
+    return this._score;
+  }
+  public set score(value: number) {
+    this._score = value;
+  }
 
   set id(id: number) {
     this._id = id;

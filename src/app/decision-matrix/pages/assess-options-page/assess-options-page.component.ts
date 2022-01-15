@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DecisionMatrix } from '../../entities/decision-matrix';
 import { DecisionMatrixAbstractService } from '../../services/decision-matrix-abstract-service';
 import { DecisionMatrixServiceHelper } from '../../utils/decision-matrix-service-helper';
 import { Option } from '../../entities/option';
 import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
+import { DefaultDataTypeValueEnum } from '../../../common-items/constants/default-data-type-value-enum.enum';
 
 @Component({
   selector: 'assess-options-page',
@@ -43,10 +44,12 @@ export class AssessOptionsPageComponent implements OnInit {
   }
 
   goToNextOption() {
+    this.saveProgress();
     if (!this.isLastOption()) this._optionIndex++;
   }
 
   goToPreviousOption() {
+    this.saveProgress();
     if (!this.isFirstOption()) this._optionIndex--;
   }
 
@@ -76,5 +79,9 @@ export class AssessOptionsPageComponent implements OnInit {
   // TODO Create a util that does this for you
   private generateNextURL(id: string): string {
     return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${DecisionMatrixRoutesEnum.RESULTS}?id=${id}`;
+  }
+
+  private saveProgress(): void {
+    // trigger save event
   }
 }

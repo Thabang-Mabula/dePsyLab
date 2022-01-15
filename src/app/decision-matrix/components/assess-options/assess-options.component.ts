@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DefaultDataTypeValueEnum } from 'src/app/common-items/constants/default-data-type-value-enum.enum';
 import { Criterion } from '../../entities/criterion';
 import { DecisionMatrix } from '../../entities/decision-matrix';
 import { Option } from '../../entities/option';
+import { DecisionMatrixAbstractService } from '../../services/decision-matrix-abstract-service';
 
 @Component({
   selector: 'assess-options',
@@ -10,9 +12,23 @@ import { Option } from '../../entities/option';
 })
 export class AssessOptionsComponent implements OnInit {
   @Input('option') option: Option = new Option();
-  @Input('criteria') criteria: Array<Criterion> = new Array<Criterion>();
+  @Input('decision-id') decisionId: string = DefaultDataTypeValueEnum.STRING;
+  private _criteria: Array<Criterion> = new Array<Criterion>();
 
-  constructor() {}
+  constructor(private decisionMatrixService: DecisionMatrixAbstractService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.decisionMatrixService
+      .retrieveCriteria(this.decisionId, this.option.id)
+      .subscribe((criteria: Array<Criterion>) => {
+        this._criteria = criteria;
+      });
+  }
+
+  public get criteria(): Array<Criterion> {
+    return this._criteria;
+  }
+  public set criteria(value: Array<Criterion>) {
+    this._criteria = value;
+  }
 }
