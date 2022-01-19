@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'page-nav-button',
@@ -8,7 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PageNavButtonComponent implements OnInit {
   @Input('h-align') horizontalAlign: String = 'left';
   @Input('disabled') isDisabled: boolean = false;
+  @ViewChild('button') button!: ElementRef<HTMLButtonElement>;
   constructor() {}
 
   ngOnInit() {}
+
+  click() {
+    this.button.nativeElement.click();
+  }
 }
