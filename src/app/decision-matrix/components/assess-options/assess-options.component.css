@@ -20,6 +20,7 @@ table {
 }
 .criteria-col {
   min-width: 10rem;
+  padding-left: 3rem;
 }
 
 .score-input {
