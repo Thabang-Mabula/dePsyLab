@@ -25,7 +25,7 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
   decisionMatrix: DecisionMatrix = new DecisionMatrix();
   optionDescription: string = DefaultDataTypeValueEnum.STRING;
   @ViewChild('addOptionBtn') addOptionButton!: ElementRef<HTMLButtonElement>;
-  @ViewChild('optionDescr') optionDescrInput!: ElementRef<HTMLButtonElement>;
+  @ViewChild('optionDescr') optionDescrInput!: ElementRef<HTMLInputElement>;
   @ViewChild('nextBtn') nextButton!: PageNavButtonComponent;
 
   constructor(
@@ -56,6 +56,7 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
         break;
       case KeyEventsEnum.TAB:
         this.addOptionButton.nativeElement.click();
+        this.optionDescrInput.nativeElement.value = DefaultDataTypeValueEnum.STRING
         this.optionDescrInput.nativeElement.focus();
         break;
       default:
