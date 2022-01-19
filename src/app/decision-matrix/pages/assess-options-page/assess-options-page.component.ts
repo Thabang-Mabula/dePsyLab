@@ -1,4 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DecisionMatrix } from '../../entities/decision-matrix';
 import { DecisionMatrixAbstractService } from '../../services/decision-matrix-abstract-service';
@@ -6,6 +13,8 @@ import { DecisionMatrixServiceHelper } from '../../utils/decision-matrix-service
 import { Option } from '../../entities/option';
 import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
 import { DefaultDataTypeValueEnum } from '../../../common-items/constants/default-data-type-value-enum.enum';
+import { KeyEventsEnum } from 'src/app/common-items/constants/key-events-enum.enum';
+import { PageNavButtonComponent } from '../../../common-components/page-nav-button/page-nav-button.component';
 
 @Component({
   selector: 'assess-options-page',
@@ -15,6 +24,9 @@ import { DefaultDataTypeValueEnum } from '../../../common-items/constants/defaul
 export class AssessOptionsPageComponent implements OnInit {
   private _decisionMatrix = new DecisionMatrix();
   private _optionIndex: number = 0;
+  @ViewChild('prevOptionBtn') prevOptionButton!: ElementRef<HTMLButtonElement>;
+  @ViewChild('nextOptionBtn') nextOptionButton!: ElementRef<HTMLButtonElement>;
+  @ViewChild('calculateBtn') calculateButton!: PageNavButtonComponent;
 
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
@@ -82,6 +94,23 @@ export class AssessOptionsPageComponent implements OnInit {
   }
 
   private saveProgress(): void {
-    // trigger save event
+    this.decisionMatrixService.saveCriteria.next();
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    switch (event.key) {
+      case KeyEventsEnum.ARROW_LEFT:
+        this.prevOptionButton.nativeElement.click();
+        break;
+      case KeyEventsEnum.ARROW_RIGHT:
+        this.nextOptionButton.nativeElement.click();
+        break;
+      case KeyEventsEnum.ENTER:
+        this.calculateButton.click();
+        break;
+      default:
+        break;
+    }
   }
 }
