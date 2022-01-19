@@ -1,18 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DecisionMatrixAbstractService } from '../../services/decision-matrix-abstract-service';
 import { ParamEnum } from '../../constants/param-enum.enum';
 import { DecisionMatrix } from '../../entities/decision-matrix';
+import { KeyEventsEnum } from 'src/app/common-items/constants/key-events-enum.enum';
+import { PageNavButtonComponent } from 'src/app/common-components/page-nav-button/page-nav-button.component';
 
 @Component({
   selector: 'criteria-page',
   templateUrl: './criteria-page.component.html',
   styleUrls: ['./criteria-page.component.css'],
 })
-export class CriteriaPageComponent implements OnInit {
+export class CriteriaPageComponent implements OnInit, AfterViewInit {
   criterionDescription: string = '';
   decisionMatrix: DecisionMatrix = new DecisionMatrix();
+  @ViewChild('addCriterionBtn')
+  addCriterionButton!: ElementRef<HTMLButtonElement>;
+  @ViewChild('criterionDescr')
+  criterionDescrInput!: ElementRef<HTMLButtonElement>;
+  @ViewChild('nextBtn') nextButton!: PageNavButtonComponent;
 
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
@@ -31,6 +45,10 @@ export class CriteriaPageComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit(): void {
+    this.criterionDescrInput.nativeElement.focus();
+  }
+
   ngOnInit() {}
 
   submit() {
@@ -44,6 +62,24 @@ export class CriteriaPageComponent implements OnInit {
   addCriterion() {
     this.decisionMatrix.addCriterion(this.criterionDescription);
     console.log('Existing criteria: ' + this.decisionMatrix.criteria);
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    switch (event.key) {
+      case KeyEventsEnum.ENTER:
+        this.nextButton.click();
+        break;
+      case KeyEventsEnum.TAB:
+        this.addCriterionButton.nativeElement.click();
+        this.criterionDescrInput.nativeElement.focus();
+        break;
+      default:
+        break;
+    }
+    if (event.key === KeyEventsEnum.ENTER) {
+      this.nextButton.click();
+    }
   }
 
   private navigateNext(url: string): void {
