@@ -12,6 +12,7 @@ import { ParamEnum } from '../../constants/param-enum.enum';
 import { DecisionMatrix } from '../../entities/decision-matrix';
 import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
 import { PageNavButtonComponent } from 'src/app/common-components/page-nav-button/page-nav-button.component';
+import { KeyEventsEnum } from '../../../common-items/constants/key-events-enum.enum';
 
 @Component({
   selector: 'app-new-title-page',
@@ -47,8 +48,7 @@ export class NewTitlePageComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    // TODO Create enum for this
-    if (event.key === 'Enter') {
+    if (event.key === KeyEventsEnum.ENTER) {
       this.nextButton.click();
     }
   }
