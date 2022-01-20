@@ -56,7 +56,6 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
         break;
       case KeyEventsEnum.TAB:
         this.addOptionButton.nativeElement.click();
-        this.optionDescrInput.nativeElement.value = DefaultDataTypeValueEnum.STRING
         this.optionDescrInput.nativeElement.focus();
         break;
       default:
@@ -79,12 +78,14 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
 
   addOption() {
     if (
+      // TODO Refactor this to a validator util or something
       this.optionDescription != null &&
       this.optionDescription != undefined &&
       this.optionDescription.trim() !== ''
     ) {
       this.decisionMatrix?.addOption(this.optionDescription.trim());
     }
+    this.optionDescription = DefaultDataTypeValueEnum.STRING;
   }
 
   private navigateNext(url: string): void {

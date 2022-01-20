@@ -1,8 +1,10 @@
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Criterion } from '../entities/criterion';
 import { DecisionMatrix } from '../entities/decision-matrix';
 
 export abstract class DecisionMatrixAbstractService {
+  saveCriteria: Subject<any> = new Subject<any>();
+
   abstract updateDecisionMatrix(
     decisionMatrix: DecisionMatrix
   ): Observable<any>;
@@ -21,4 +23,5 @@ export abstract class DecisionMatrixAbstractService {
     optionId: number,
     criteria: Array<Criterion>
   ): Observable<any>;
+
 }

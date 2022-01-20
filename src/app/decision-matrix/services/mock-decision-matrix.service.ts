@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { MockEnum } from '../constants/mock-enum.enum';
 import { Criterion } from '../entities/criterion';
 import { DecisionMatrix } from '../entities/decision-matrix';
@@ -15,6 +15,8 @@ export class MockDecisionMatrixService
   private _decisionMatrix: DecisionMatrix;
   private _mockCriteriaTable: Array<MockCriteriaRow> =
     new Array<MockCriteriaRow>();
+  private _saveCriteria: Subject<any> = new Subject<any>();
+  saveCriteria: Subject<any> = new Subject<any>();
 
   constructor() {
     this._decisionMatrix = new DecisionMatrix();
@@ -48,6 +50,12 @@ export class MockDecisionMatrixService
     decisionId: string,
     optionId: number
   ): Observable<Array<Criterion>> {
+    console.log(
+      'Tried to retrieve criteria for decision_id: ' +
+        decisionId +
+        ' option_id: ' +
+        optionId
+    );
     this._mockCriteriaTable.forEach((mockCriteriaRow: MockCriteriaRow) => {
       if (
         mockCriteriaRow.decisionId == decisionId &&

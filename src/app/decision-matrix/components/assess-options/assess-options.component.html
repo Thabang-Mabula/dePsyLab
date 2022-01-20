@@ -4,7 +4,7 @@
   </div>
 
 
-  <table class="">
+  <table class="" #scoringTable>
     <colgroup>
       <col class="criteria-col">
       <col class="score-col">
@@ -21,12 +21,12 @@
     </tr>
 
     <tr *ngFor="let criterion of criteria">
-      <td>
+      <td class="criterion-description">
         {{criterion.description}}
       </td>
       <td>
-        <!-- TODO use a pipe to display no score when score is -1 -->
-        <input type="text" class="score-input" value="{{ criterion.score }} ">
+        <input type="text" class="score-input" [ngModel]="criterion.score | score"
+          (ngModelChange)="criterion.score=$event">
       </td>
     </tr>
 

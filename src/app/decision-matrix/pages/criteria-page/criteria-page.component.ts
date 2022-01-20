@@ -13,6 +13,7 @@ import { ParamEnum } from '../../constants/param-enum.enum';
 import { DecisionMatrix } from '../../entities/decision-matrix';
 import { KeyEventsEnum } from 'src/app/common-items/constants/key-events-enum.enum';
 import { PageNavButtonComponent } from 'src/app/common-components/page-nav-button/page-nav-button.component';
+import { DefaultDataTypeValueEnum } from 'src/app/common-items/constants/default-data-type-value-enum.enum';
 
 @Component({
   selector: 'criteria-page',
@@ -25,7 +26,7 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
   @ViewChild('addCriterionBtn')
   addCriterionButton!: ElementRef<HTMLButtonElement>;
   @ViewChild('criterionDescr')
-  criterionDescrInput!: ElementRef<HTMLButtonElement>;
+  criterionDescrInput!: ElementRef<HTMLInputElement>;
   @ViewChild('nextBtn') nextButton!: PageNavButtonComponent;
 
   constructor(
@@ -60,8 +61,13 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
   }
 
   addCriterion() {
-    this.decisionMatrix.addCriterion(this.criterionDescription);
-    console.log('Existing criteria: ' + this.decisionMatrix.criteria);
+    if (
+      this.criterionDescription != null &&
+      this.criterionDescription != undefined &&
+      this.criterionDescription.trim() !== ''
+    )
+      this.decisionMatrix.addCriterion(this.criterionDescription);
+    this.criterionDescription = DefaultDataTypeValueEnum.STRING;
   }
 
   @HostListener('window:keyup', ['$event'])

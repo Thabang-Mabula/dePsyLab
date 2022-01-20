@@ -15,6 +15,7 @@ import { AssessOptionsComponent } from './components/assess-options/assess-optio
 import { CriteriaPageComponent } from './pages/criteria-page/criteria-page.component';
 import { EditableListDisplayComponent } from './components/editable-list-display/editable-list-display.component';
 import { ResultsPageComponent } from './pages/results-page/results-page.component';
+import { ScorePipe } from './pipes/score.pipe';
 
 const routes: Routes = [
   {
@@ -66,6 +67,7 @@ const routes: Routes = [
     CriteriaPageComponent,
     EditableListDisplayComponent,
     ResultsPageComponent,
+    ScorePipe
   ],
   imports: [
     CommonModule,

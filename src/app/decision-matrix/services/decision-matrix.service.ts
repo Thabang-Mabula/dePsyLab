@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Criterion } from '../entities/criterion';
 import { DecisionMatrix } from '../entities/decision-matrix';
 import { DecisionMatrixAbstractService } from './decision-matrix-abstract-service';
@@ -10,6 +10,7 @@ import { DecisionMatrixServiceInterface } from './decision-matrix-service-interf
 })
 export class DecisionMatrixService implements DecisionMatrixAbstractService {
   constructor() {}
+  saveCriteria: Subject<any> = new Subject<any>();
 
   upsertCriteria(
     decisionId: string,
