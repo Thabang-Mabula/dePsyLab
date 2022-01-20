@@ -65,8 +65,9 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
       this.criterionDescription != null &&
       this.criterionDescription != undefined &&
       this.criterionDescription.trim() !== ''
-    )
+    ) {
       this.decisionMatrix.addCriterion(this.criterionDescription);
+    }
     this.criterionDescription = DefaultDataTypeValueEnum.STRING;
   }
 
