@@ -1,7 +1,13 @@
+:root {
+  --primary-grey: #1e1e1e;
+  --secondary-grey: #424242;
+  --white-color: #eeeeee;
+}
+
 body {
   padding: 0 2rem;
-  background-color: #1e1e1e;
-  color: #eeeeee;
+  background-color: var(--primary-grey);
+  color: var(--white-color);
 }
 
 h1,
@@ -9,8 +15,11 @@ h2,
 h3,
 p,
 div {
-  color: #eeeeee;
+  color: var(--white-color);
 }
+
+
+
 
 .outline {
   outline: 0.05rem solid red;

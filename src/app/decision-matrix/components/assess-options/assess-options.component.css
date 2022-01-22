@@ -31,3 +31,10 @@ table {
   padding-right: 3rem;
   text-align: right;
 }
+
+.emphasised-content {
+  background-color: var(--secondary-grey);
+  text-align: center;
+  padding: 0.6rem 0;
+  margin: 1rem 0;
+}
