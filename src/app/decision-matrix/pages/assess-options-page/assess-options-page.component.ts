@@ -15,6 +15,7 @@ import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes
 import { DefaultDataTypeValueEnum } from '../../../common-items/constants/default-data-type-value-enum.enum';
 import { KeyEventsEnum } from 'src/app/common-items/constants/key-events-enum.enum';
 import { PageNavButtonComponent } from '../../../common-components/page-nav-button/page-nav-button.component';
+import { AssessOptionsComponent } from '../../components/assess-options/assess-options.component';
 
 @Component({
   selector: 'assess-options-page',
@@ -27,6 +28,7 @@ export class AssessOptionsPageComponent implements OnInit {
   @ViewChild('prevOptionBtn') prevOptionButton!: ElementRef<HTMLButtonElement>;
   @ViewChild('nextOptionBtn') nextOptionButton!: ElementRef<HTMLButtonElement>;
   @ViewChild('calculateBtn') calculateButton!: PageNavButtonComponent;
+  @ViewChild('assessOptionsComp') assessOptionsComp!: AssessOptionsComponent;
 
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
@@ -94,7 +96,7 @@ export class AssessOptionsPageComponent implements OnInit {
   }
 
   private saveProgress(): void {
-    this.decisionMatrixService.saveCriteria.next();
+    this.assessOptionsComp.saveCriteria();
   }
 
   @HostListener('window:keyup', ['$event'])

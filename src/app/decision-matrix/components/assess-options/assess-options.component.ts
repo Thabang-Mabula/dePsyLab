@@ -6,11 +6,12 @@ import {
   AfterViewInit,
   ViewChild,
   ElementRef,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 import { DefaultDataTypeValueEnum } from 'src/app/common-items/constants/default-data-type-value-enum.enum';
 import { KeyEventsEnum } from 'src/app/common-items/constants/key-events-enum.enum';
 import { Criterion } from '../../entities/criterion';
-import { DecisionMatrix } from '../../entities/decision-matrix';
 import { Option } from '../../entities/option';
 import { DecisionMatrixAbstractService } from '../../services/decision-matrix-abstract-service';
 
@@ -23,7 +24,9 @@ const OFFSET_DOWN = 1;
   templateUrl: './assess-options.component.html',
   styleUrls: ['./assess-options.component.css'],
 })
-export class AssessOptionsComponent implements OnInit, AfterViewInit {
+export class AssessOptionsComponent
+  implements OnInit, AfterViewInit, OnChanges
+{
   @Input('option') option: Option = new Option();
   @Input('decision-id') decisionId: string = DefaultDataTypeValueEnum.STRING;
   @ViewChild('scoringTable') scoringTable!: ElementRef<HTMLTableElement>;
@@ -33,30 +36,23 @@ export class AssessOptionsComponent implements OnInit, AfterViewInit {
   constructor(private decisionMatrixService: DecisionMatrixAbstractService) {}
 
   ngOnInit() {
-    this.subscribeToRetrievingCriteria();
-    this.subscribeToSavingCriteria();
+    this.decisionMatrixService
+      .retrieveCriteria(this.decisionId, this.option.id)
+      .subscribe((criteria: Array<Criterion>) => {
+        this.criteria = criteria;
+      });
   }
 
   ngAfterViewInit(): void {
     this.focusScoreInput(this.scoreInputInFocus);
   }
 
-  private subscribeToRetrievingCriteria() {
+  ngOnChanges(changes: SimpleChanges): void {
     this.decisionMatrixService
-      .retrieveCriteria(this.decisionId, this.option.id)
+      .retrieveCriteria(this.decisionId, changes.option.currentValue.id)
       .subscribe((criteria: Array<Criterion>) => {
-        this._criteria = criteria;
+        this.criteria = criteria;
       });
-  }
-
-  private subscribeToSavingCriteria() {
-    this.decisionMatrixService.saveCriteria.subscribe(() => {
-      this.decisionMatrixService.upsertCriteria(
-        this.decisionId,
-        this.option.id,
-        this.criteria
-      );
-    });
   }
 
   public get criteria(): Array<Criterion> {
@@ -100,5 +96,11 @@ export class AssessOptionsComponent implements OnInit, AfterViewInit {
   private offsetScoreFocus(offset: number) {
     this.incrementScoreInputIndex(offset);
     this.focusScoreInput(this.scoreInputInFocus);
+  }
+
+  saveCriteria() {
+    this.decisionMatrixService
+      .upsertCriteria(this.decisionId, this.option.id, this.criteria)
+      .subscribe();
   }
 }

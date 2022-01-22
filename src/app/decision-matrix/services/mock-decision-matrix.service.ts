@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { MockEnum } from '../constants/mock-enum.enum';
@@ -28,21 +29,22 @@ export class MockDecisionMatrixService
     optionId: number,
     criteria: Criterion[]
   ): Observable<any> {
-    this._mockCriteriaTable.forEach((mockCriteriaRow: MockCriteriaRow) => {
+    for (let mockCriteriaRow of this._mockCriteriaTable) {
       if (
         mockCriteriaRow.decisionId == decisionId &&
         mockCriteriaRow.optionId == optionId
       ) {
-        mockCriteriaRow.criteria = criteria;
+        mockCriteriaRow.criteria = createCopyArray(criteria);
         return of('success');
       }
-    });
+    }
 
     this._mockCriteriaTable.push({
       decisionId: decisionId,
       optionId: optionId,
-      criteria: criteria,
+      criteria: createCopyArray(criteria),
     });
+
     return of('success');
   }
 
@@ -56,17 +58,18 @@ export class MockDecisionMatrixService
         ' option_id: ' +
         optionId
     );
-    this._mockCriteriaTable.forEach((mockCriteriaRow: MockCriteriaRow) => {
+
+    for (let mockCriteriaRow of this._mockCriteriaTable) {
       if (
         mockCriteriaRow.decisionId == decisionId &&
         mockCriteriaRow.optionId == optionId
       ) {
-        return of(mockCriteriaRow.criteria);
+        return of(createCopyArray(mockCriteriaRow.criteria));
       }
-    });
+    }
 
     // TODO Create a custom exception to be thrown when element cannot be retrieved
-    return of(this._decisionMatrix.criteria);
+    return of(createCopyArray(this._decisionMatrix.criteria));
   }
 
   updateDecisionMatrix(decisionMatrix: DecisionMatrix): Observable<any> {
@@ -92,4 +95,17 @@ interface MockCriteriaRow {
   decisionId: string;
   optionId: number;
   criteria: Array<Criterion>;
+}
+// TODO Find a more elegant way of deep cloning
+function createCopyArray(criteria: Criterion[]): Criterion[] {
+  let returnArray: Criterion[] = new Array<Criterion>();
+  for (let criterion of criteria) {
+    let newCriterion: Criterion = new Criterion();
+    newCriterion.id = criterion.id;
+    newCriterion.description = criterion.description;
+    newCriterion.score = criterion.score;
+    returnArray.push(newCriterion);
+  }
+
+  return returnArray;
 }
