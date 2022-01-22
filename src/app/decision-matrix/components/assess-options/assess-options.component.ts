@@ -100,7 +100,7 @@ export class AssessOptionsComponent
 
   saveCriteria() {
     this.decisionMatrixService
-      .upsertCriteria(this.decisionId, this.option.id, this.criteria)
+      .updateCriteria(this.decisionId, this.option.id, this.criteria)
       .subscribe();
   }
 }

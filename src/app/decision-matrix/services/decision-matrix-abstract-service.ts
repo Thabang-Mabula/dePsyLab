@@ -18,7 +18,7 @@ export abstract class DecisionMatrixAbstractService {
     optionId: number
   ): Observable<Array<Criterion>>;
 
-  abstract upsertCriteria(
+  abstract updateCriteria(
     decisionId: string,
     optionId: number,
     criteria: Array<Criterion>

@@ -24,7 +24,7 @@ export class MockDecisionMatrixService
     this._decisionMatrix.id = MockEnum.NEW_ITEM_ID;
   }
 
-  upsertCriteria(
+  updateCriteria(
     decisionId: string,
     optionId: number,
     criteria: Criterion[]

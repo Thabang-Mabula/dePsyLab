@@ -12,7 +12,7 @@ export class DecisionMatrixService implements DecisionMatrixAbstractService {
   constructor() {}
   saveCriteria: Subject<any> = new Subject<any>();
 
-  upsertCriteria(
+  updateCriteria(
     decisionId: string,
     optionId: number,
     criteria: Criterion[]
