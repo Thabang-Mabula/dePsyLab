@@ -2,6 +2,10 @@
   --primary-grey: #1e1e1e;
   --secondary-grey: #424242;
   --white-color: #eeeeee;
+
+  /* Shadows */
+  --shadow-color: rgb(17, 17, 17);
+  --shadow-properties: 0.1rem 0.1rem 0.25rem;
 }
 
 body {
@@ -17,9 +21,6 @@ p,
 div {
   color: var(--white-color);
 }
-
-
-
 
 .outline {
   outline: 0.05rem solid red;
