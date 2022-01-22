@@ -79,6 +79,7 @@ export class AssessOptionsPageComponent implements OnInit {
   }
 
   submit() {
+    this.saveProgress();
     this.decisionMatrixService
       .updateDecisionMatrix(this.decisionMatrix)
       .subscribe((res) => {

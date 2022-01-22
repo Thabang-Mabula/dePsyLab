@@ -5,9 +5,7 @@ import { DefaultDataTypeValueEnum } from 'src/app/common-items/constants/default
   name: 'score',
 })
 export class ScorePipe implements PipeTransform {
-  transform(value: number): any {
-    return value == DefaultDataTypeValueEnum.NUMBER
-      ? DefaultDataTypeValueEnum.STRING
-      : value;
+  transform(value: number): number | null {
+    return value == DefaultDataTypeValueEnum.NUMBER ? null : value;
   }
 }

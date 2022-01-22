@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Criterion } from '../entities/criterion';
 import { DecisionMatrix } from '../entities/decision-matrix';
+import { RankedOption } from '../entities/ranked-option';
 import { DecisionMatrixAbstractService } from './decision-matrix-abstract-service';
 import { DecisionMatrixServiceInterface } from './decision-matrix-service-interface';
 
@@ -10,6 +11,9 @@ import { DecisionMatrixServiceInterface } from './decision-matrix-service-interf
 })
 export class DecisionMatrixService implements DecisionMatrixAbstractService {
   constructor() {}
+  getOptionRankings(decisionId: string): Observable<RankedOption[]> {
+    throw new Error('Method not implemented.');
+  }
   saveCriteria: Subject<any> = new Subject<any>();
 
   updateCriteria(

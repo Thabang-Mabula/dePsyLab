@@ -1,11 +1,10 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { MockEnum } from '../constants/mock-enum.enum';
 import { Criterion } from '../entities/criterion';
 import { DecisionMatrix } from '../entities/decision-matrix';
+import { RankedOption } from '../entities/ranked-option';
 import { DecisionMatrixAbstractService } from './decision-matrix-abstract-service';
-import { DecisionMatrixServiceInterface } from './decision-matrix-service-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +21,40 @@ export class MockDecisionMatrixService
   constructor() {
     this._decisionMatrix = new DecisionMatrix();
     this._decisionMatrix.id = MockEnum.NEW_ITEM_ID;
+  }
+  getOptionRankings(decisionId: string): Observable<Array<RankedOption>> {
+    // Assume the decision ID is for the decision matrix that's in-memory
+    let rankedOptions = new Array<RankedOption>();
+    for (let option of this._decisionMatrix.options) {
+      let score: number = this.calculateCriteriaScore(option.id, decisionId);
+      let optionRank: RankedOption = new RankedOption();
+      optionRank.score = score;
+      optionRank.option = option;
+      rankedOptions.push(optionRank);
+    }
+
+    if (rankedOptions.length > 0) {
+      this.assignRankings(rankedOptions);
+    }
+
+    return of(rankedOptions);
+  }
+
+  private assignRankings(rankedOptions: RankedOption[]) {
+    rankedOptions.sort((a: RankedOption, b: RankedOption) => {
+      return b.score - a.score;
+    });
+
+    let currentScore = rankedOptions[0].score;
+    let currentRanking = 1;
+    rankedOptions.forEach((rankedOption: RankedOption, index: number) => {
+      if (rankedOption.score < currentScore) {
+        currentRanking++;
+        currentScore = rankedOption.score;
+      }
+
+      rankedOption.rank = currentRanking;
+    });
   }
 
   updateCriteria(
@@ -52,13 +85,6 @@ export class MockDecisionMatrixService
     decisionId: string,
     optionId: number
   ): Observable<Array<Criterion>> {
-    console.log(
-      'Tried to retrieve criteria for decision_id: ' +
-        decisionId +
-        ' option_id: ' +
-        optionId
-    );
-
     for (let mockCriteriaRow of this._mockCriteriaTable) {
       if (
         mockCriteriaRow.decisionId == decisionId &&
@@ -88,6 +114,22 @@ export class MockDecisionMatrixService
    */
   generateNewItemId(): string {
     return MockEnum.NEW_ITEM_ID;
+  }
+
+  private calculateCriteriaScore(optionId: number, decisionId: string): number {
+    let score = 0;
+    for (let mockCriteriaRow of this._mockCriteriaTable) {
+      if (
+        mockCriteriaRow.decisionId == decisionId &&
+        mockCriteriaRow.optionId == optionId
+      ) {
+        for (let criterion of mockCriteriaRow.criteria) {
+          score += criterion.score;
+        }
+      }
+    }
+
+    return score;
   }
 }
 
