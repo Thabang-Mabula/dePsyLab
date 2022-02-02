@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3> Indicate the extent to which the following option meets your criteria: </h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-12 d-flex justify-content-center">
+      <assess-options [option]="currentOption" [decision-id]="decisionMatrix.id!" #assessOptionsComp></assess-options>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 d-flex justify-content-center">
+      <button type="button" class="btn btn-primary option-nav-btn" [disabled]="isFirstOption()"
+        (click)="goToPreviousOption()" #prevOptionBtn> Previous </button>
+      <button type="button" class="btn btn-primary option-nav-btn" [disabled]="isLastOption()"
+        (click)="goToNextOption()" #nextOptionBtn>
+        Next </button>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 d-flex justify-content-center">
+      <page-nav-button (click)="submit()" #calculateBtn>Calculate</page-nav-button>
+    </div>
+  </div>
+
+
+</div>

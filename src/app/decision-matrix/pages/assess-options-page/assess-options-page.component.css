@@ -1,0 +1,22 @@
+.assess-options-page-wrapper {
+  position: absolute;
+  margin-left: 15vw;
+}
+
+h3 {
+  text-align: center;
+}
+
+.navigation-button-wrapper {
+  margin-left: 23vw;
+}
+
+.option-nav-btn {
+  margin: 1rem 0.5rem;
+  min-width: 7rem;
+}
+
+button[disabled] {
+  background-color: gray;
+  border-color: antiquewhite;
+}

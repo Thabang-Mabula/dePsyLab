@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 d-flex justify-content-center">
+      <h3 *ngIf="retrieveOptionsByRank(1).length <= 1; else pluralHeader"> The option that best meets your criteria is
+      </h3>
+    </div>
+  </div>
+  <div class="row justify-content-center" *ngFor="let rankedOption of retrieveOptionsByRank(1)">
+    <div class="col-sm-8 col-12 d-flex justify-content-center  emphasised-content">
+      {{ rankedOption.option.description }}
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 d-flex justify-content-center">
+      <page-nav-button>Done</page-nav-button>
+    </div>
+  </div>
+
+  <ng-template #pluralHeader>
+    <h3> The options that best meet your criteria are </h3>
+  </ng-template>
+</div>

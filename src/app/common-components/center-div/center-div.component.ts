@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'center-div',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./center-div.component.css'],
 })
 export class CenterDivComponent implements OnInit {
+  @Input('center-content') isCenterContent: boolean = false;
+
   constructor() {}
 
   ngOnInit(): void {}

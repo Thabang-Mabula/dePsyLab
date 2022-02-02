@@ -1,0 +1,10 @@
+button {
+  margin: 2em 0;
+}
+
+button:disabled {
+  background-color: grey;
+  border-color: antiquewhite;
+}
+
+

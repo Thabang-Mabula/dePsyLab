@@ -1,0 +1,36 @@
+<div class="assess-options-wrapper">
+  <div class="option-description-wrapper emphasised-content">
+    {{option.description}}
+  </div>
+
+
+  <table class="" #scoringTable>
+    <colgroup>
+      <col class="criteria-col">
+      <col class="score-col">
+      <!-- repeat as many cols as the number of headers -->
+    </colgroup>
+    <!-- Header -->
+    <tr>
+      <th class="criteria-table-header">
+        Criteria
+      </th>
+      <th class="criteria-table-header">
+        Score <br> (1 - 3)
+      </th>
+    </tr>
+
+    <tr *ngFor="let criterion of criteria">
+      <td class="criterion-description">
+        {{criterion.description}}
+      </td>
+      <td>
+        <input type="number" class="score-input" [ngModel]="criterion.score | score"
+          (ngModelChange)="criterion.score=$event">
+      </td>
+    </tr>
+
+  </table>
+
+
+</div>

@@ -1,4 +1,27 @@
-html {
-  background-color: #1e1e1e;
-  color: #eeeeee;
+:root {
+  --primary-grey: #1e1e1e;
+  --secondary-grey: #424242;
+  --white-color: #eeeeee;
+
+  /* Shadows */
+  --shadow-color: rgb(17, 17, 17);
+  --shadow-properties: 0.1rem 0.1rem 0.25rem;
+}
+
+body {
+  padding: 0 2rem;
+  background-color: var(--primary-grey);
+  color: var(--white-color);
+}
+
+h1,
+h2,
+h3,
+p,
+div {
+  color: var(--white-color);
+}
+
+.outline {
+  outline: 0.05rem solid red;
 }
