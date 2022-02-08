@@ -25,7 +25,7 @@
         {{criterion.description}}
       </td>
       <td>
-        <input pattern="[0-9]*" class="score-input" [ngModel]="criterion.score | score"
+        <input pattern="[0-9]*" inputmode="numeric" class="score-input" [ngModel]="criterion.score | score"
           (ngModelChange)="criterion.score=$event">
       </td>
     </tr>

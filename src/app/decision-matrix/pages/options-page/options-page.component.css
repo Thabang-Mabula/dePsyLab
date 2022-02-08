@@ -9,6 +9,5 @@ input[type="text"] {
 }
 
 button {
-  margin: 0.25rem 0;
-  max-height: 2.5rem;
+  max-height: 100%;
 }
