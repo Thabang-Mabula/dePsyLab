@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 d-flex justify-content-center">
-      <h3 *ngIf="retrieveOptionsByRank(1).length <= 1; else pluralHeader"> The option that best meets your criteria is
+      <h3 *ngIf="retrieveOptionsByRank(1).length <= 1; else pluralHeader"> The option that best meets your criteria is:
       </h3>
     </div>
   </div>
@@ -11,12 +11,42 @@
     </div>
   </div>
   <div class="row justify-content-center">
+    <div class="col-sm-8 col-12 d-flex justify-content-center">
+     <span class="optons-ranking-descrption">Your options ranked as follows:</span> 
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-10 d-flex justify-content-center">
+      <table>
+        <colgroup>
+          <col class="rank-col">
+          <col class="option-col">
+          <col class="score-col">
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="table-header rank-cell">Rank</th>
+            <th class="table-header option-cell">Option</th>
+            <th class="table-header score-cell">Overall Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rankedOption of rankedOptions">
+            <td class="table-data rank-cell"> {{rankedOption.rank}} </td>
+            <td class="table-data option-cell"> {{rankedOption.option.description}} </td>
+            <td class="table-data score-cell"> {{rankedOption.score}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-center">
     <div class="col-12 d-flex justify-content-center">
       <page-nav-button>Done</page-nav-button>
     </div>
   </div>
 
   <ng-template #pluralHeader>
-    <h3> The options that best meet your criteria are </h3>
+    <h3> The options that best meet your criteria are: </h3>
   </ng-template>
 </div>
