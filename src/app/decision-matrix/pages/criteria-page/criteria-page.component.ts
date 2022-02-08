@@ -69,6 +69,7 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
       this.decisionMatrix.addCriterion(this.criterionDescription);
     }
     this.criterionDescription = DefaultDataTypeValueEnum.STRING;
+    this.criterionDescrInput.nativeElement.focus();
   }
 
   @HostListener('window:keyup', ['$event'])
@@ -79,7 +80,6 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
         break;
       case KeyEventsEnum.TAB:
         this.addCriterionButton.nativeElement.click();
-        this.criterionDescrInput.nativeElement.focus();
         break;
       default:
         break;

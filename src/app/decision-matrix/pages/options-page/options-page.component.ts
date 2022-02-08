@@ -56,7 +56,6 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
         break;
       case KeyEventsEnum.TAB:
         this.addOptionButton.nativeElement.click();
-        this.optionDescrInput.nativeElement.focus();
         break;
       default:
         break;
@@ -86,6 +85,7 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
       this.decisionMatrix?.addOption(this.optionDescription.trim());
     }
     this.optionDescription = DefaultDataTypeValueEnum.STRING;
+    this.optionDescrInput.nativeElement.focus();
   }
 
   private navigateNext(url: string): void {
