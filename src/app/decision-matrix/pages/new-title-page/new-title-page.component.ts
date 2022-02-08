@@ -40,8 +40,8 @@ export class NewTitlePageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.titleInputElement.nativeElement);
-    this.titleInputElement.nativeElement.focus();
+    // TODO make sure this only happens on desktop devices
+    // this.titleInputElement.nativeElement.focus();
   }
 
   ngOnInit(): void {}

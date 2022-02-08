@@ -45,7 +45,8 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.optionDescrInput.nativeElement.focus();
+    // TODO make sure this only happens on desktop devices
+    // this.optionDescrInput.nativeElement.focus();
   }
 
   @HostListener('window:keyup', ['$event'])

@@ -47,7 +47,8 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.criterionDescrInput.nativeElement.focus();
+    // TODO make sure this only happens on desktop devices
+    // this.criterionDescrInput.nativeElement.focus();
   }
 
   ngOnInit() {}
