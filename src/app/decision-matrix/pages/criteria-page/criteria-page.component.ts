@@ -28,6 +28,7 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
   @ViewChild('criterionDescr')
   criterionDescrInput!: ElementRef<HTMLInputElement>;
   @ViewChild('nextBtn') nextButton!: PageNavButtonComponent;
+  MAX_LENGTH: number = 40;
 
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
@@ -71,6 +72,10 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
     }
     this.criterionDescription = DefaultDataTypeValueEnum.STRING;
     this.criterionDescrInput.nativeElement.focus();
+  }
+
+  isValidToProceed(): boolean {
+    return this.decisionMatrix.criteria.length > 0;
   }
 
   @HostListener('window:keyup', ['$event'])

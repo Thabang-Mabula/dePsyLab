@@ -50,3 +50,8 @@ button[type="button"] {
   font-size: var(--button-text);
   padding: 0.5rem;
 }
+
+button[type="button"]:disabled {
+  background-color: grey;
+  border-color: antiquewhite;
+}

@@ -23,6 +23,7 @@ export class NewTitlePageComponent implements OnInit, AfterViewInit {
   private _decisionMatrix: DecisionMatrix = new DecisionMatrix();
   @ViewChild('titleInput') titleInputElement!: ElementRef<HTMLInputElement>;
   @ViewChild('nextBtn') nextButton!: PageNavButtonComponent;
+  MAX_LENGTH: number = 50;
 
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,

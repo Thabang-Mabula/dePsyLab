@@ -9,10 +9,11 @@
   <div class="row justify-content-center align-items-center input-row">
     <div class="col-sm-10 col-12 col-lg-7 d-flex justify-content-center outlint">
       <input type="text" class="form-control" name="title" aria-describedby="helpId" [(ngModel)]="criterionDescription"
-        placeholder="E.g. Quality of education" #criterionDescr>
+        placeholder="E.g. Quality of education" required maxlength="{{MAX_LENGTH}}" #criterionDescr="ngModel">
     </div>
     <div class="col-sm-2 col-12 col-lg-1 d-flex justify-content-center">
-      <button type="button" class="btn btn-primary" (click)="addCriterion()" #addCriterionBtn> Add </button>
+      <button type="button" class="btn btn-primary" (click)="addCriterion()" [disabled]="criterionDescr.invalid!"
+        #addCriterionBtn> Add </button>
     </div>
   </div>
 
@@ -25,7 +26,7 @@
 
   <div class="row justify-content-center">
     <div class="col-12 d-flex justify-content-center">
-      <page-nav-button (click)="submit()" #nextBtn>Next</page-nav-button>
+      <page-nav-button (click)="submit()" [disabled]="!isValidToProceed()" #nextBtn>Next</page-nav-button>
     </div>
   </div>
 

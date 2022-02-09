@@ -4,7 +4,3 @@ button {
   padding: 0.5rem 2rem;
 }
 
-button:disabled {
-  background-color: grey;
-  border-color: antiquewhite;
-}
