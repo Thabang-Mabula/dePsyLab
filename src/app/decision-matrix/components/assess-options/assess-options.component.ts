@@ -86,6 +86,7 @@ export class AssessOptionsComponent
     )).focus();
   }
 
+  // TODO This logic needs more work. It breaks at the max boundry
   private incrementScoreInputIndex(increment: number) {
     this.scoreInputInFocus =
       (this.scoreInputInFocus + increment) % (this.criteria.length + 1);
