@@ -16,7 +16,10 @@
 
     <div class="row justify-content-center">
         <div class="col-12 d-flex justify-content-center">
-            <page-nav-button (click)="submitTitle()" [disabled]="titleInput.invalid!" #nextBtn>Next</page-nav-button>
+            <!-- I know the validity check on the click event binding isn't the best solution -->
+            <!-- Finding a better solution is tricky because it's hard to stop the execution of the template statement when the page-nav-btn is disabled -->
+            <page-nav-button (click)="titleInput.valid && submitTitle()" [disabled]="titleInput.invalid!" #nextBtn>Next
+            </page-nav-button>
         </div>
     </div>
 
