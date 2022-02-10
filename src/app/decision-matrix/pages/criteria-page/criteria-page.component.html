@@ -26,6 +26,7 @@
 
   <div class="row justify-content-center">
     <div class="col-12 d-flex justify-content-center">
+      <!-- In future, try and find a way to prevent the click event from happening if page-nav-btn is disabled-->
       <page-nav-button (click)="isValidToProceed() && submit()" [disabled]="!isValidToProceed()" #nextBtn>Next
       </page-nav-button>
     </div>
