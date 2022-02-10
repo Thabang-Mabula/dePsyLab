@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Quicksand&display=swap");
+
 :root {
   --primary-grey: #1e1e1e;
   --secondary-grey: #424242;
@@ -12,6 +14,10 @@
   --h3: 2rem;
   --h1: 2.8rem;
   --button-text: 1.2rem;
+
+  /* Serif font */
+  --serif-font: "Cormorant Garamond", serif;
+  --san-serif-font: "Quicksand", sans-serif;
 }
 
 body {
@@ -19,6 +25,13 @@ body {
   background-color: var(--primary-grey);
   color: var(--white-color);
   font-size: var(--normal-text);
+  font-family: var(--san-serif-font);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif-font);
 }
 
 h1,
