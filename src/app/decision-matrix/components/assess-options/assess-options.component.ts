@@ -32,6 +32,8 @@ export class AssessOptionsComponent
   @ViewChild('scoringTable') scoringTable!: ElementRef<HTMLTableElement>;
   private _criteria: Array<Criterion> = new Array<Criterion>();
   private scoreInputInFocus: number = 1;
+  MIN_SCORE: number = 1;
+  MAX_SCORE: number = 3;
 
   constructor(private decisionMatrixService: DecisionMatrixAbstractService) {}
 
