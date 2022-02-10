@@ -27,6 +27,7 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
   @ViewChild('addOptionBtn') addOptionButton!: ElementRef<HTMLButtonElement>;
   @ViewChild('optionDescr') optionDescrInput!: ElementRef<HTMLInputElement>;
   @ViewChild('nextBtn') nextButton!: PageNavButtonComponent;
+  MAX_LENGTH: number = 50;
 
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
@@ -77,14 +78,8 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
   }
 
   addOption() {
-    if (
-      // TODO Refactor this to a validator util or something
-      this.optionDescription != null &&
-      this.optionDescription != undefined &&
-      this.optionDescription.trim() !== ''
-    ) {
-      this.decisionMatrix?.addOption(this.optionDescription.trim());
-    }
+    this.decisionMatrix?.addOption(this.optionDescription.trim());
+
     this.optionDescription = DefaultDataTypeValueEnum.STRING;
     this.optionDescrInput.nativeElement.focus();
   }
@@ -95,5 +90,9 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
 
   private generateNextURL(id: string): string {
     return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${DecisionMatrixRoutesEnum.ASSESS_OPTIONS}?id=${id}`;
+  }
+
+  isValidToProceed(): boolean {
+    return this.decisionMatrix.options.length > 0;
   }
 }
