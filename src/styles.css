@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Quicksand&display=swap");
 
 :root {
+  /* Colors */
   --primary-grey: #1e1e1e;
   --secondary-grey: #424242;
   --white-color: #eeeeee;
+  --primary-btn-bg: #6b4388;
+  --primary-btn-bg-darker: #623088;
 
   /* Shadows */
   --shadow-color: rgb(17, 17, 17);
@@ -67,4 +70,22 @@ button[type="button"] {
 button[type="button"]:disabled {
   background-color: grey;
   border-color: antiquewhite;
+}
+
+.btn-custom-primary {
+  background-color: var(--primary-btn-bg);
+  color: var(--white-color);
+  border-color: var(--white-color);
+}
+
+
+.btn-custom-primary:hover {
+  background-color: var(--primary-btn-bg-darker);
+  color: var(--white-color);
+  font-weight: bolder;
+  border-width: 0.1rem;
+}
+
+.btn-custom-primary:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
 }
