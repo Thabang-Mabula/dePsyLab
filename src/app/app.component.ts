@@ -1,4 +1,5 @@
-import { Component, Directive } from '@angular/core';
+import { Component } from '@angular/core';
+import { AppEnum } from './decision-matrix/constants/app-enum.enum';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component, Directive } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'dePsyLab';
+  title = AppEnum.APP_TITLE;
 }
