@@ -19,7 +19,7 @@ import { ScorePipe } from './pipes/score.pipe';
 
 const routes: Routes = [
   {
-    path: 'decision-matrix',
+    path: DecisionMatrixRoutesEnum.CONTEXT_ROOT,
     component: DecisionMatrixComponent,
     children: [
       {
