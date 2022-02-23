@@ -22,7 +22,6 @@ export class DecisionMatrixStartComponent implements OnInit {
   }
 
   private obtainNewItemId(): string {
-    console.log(this.decisionMatrixService.generateNewItemId());
     return this.decisionMatrixService.generateNewItemId();
   }
 }
