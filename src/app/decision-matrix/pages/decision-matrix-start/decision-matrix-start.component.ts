@@ -1,9 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
-import { DecisionMatrixServiceInterface } from '../../services/decision-matrix-service-interface';
-import { DecisionMatrixService } from '../../services/decision-matrix.service';
 import { DecisionMatrixAbstractService } from '../../services/decision-matrix-abstract-service';
-import { MockDecisionMatrixService } from '../../services/mock-decision-matrix.service';
 
 @Component({
   selector: 'app-decision-matrix-start',
