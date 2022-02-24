@@ -4,8 +4,19 @@ import { DefaultDataTypeValueEnum } from 'src/app/common-items/constants/default
 @Pipe({
   name: 'score',
 })
+
+/**
+ * Pipe for formatting scores
+ */
 export class ScorePipe implements PipeTransform {
+  /**
+   * Transforms any number that is not greater than 0
+   * into a null value
+   *
+   * @param  {number} value Input value
+   * @returns Value if value is greater than 0, null otherwise
+   */
   transform(value: number): number | null {
-    return value == DefaultDataTypeValueEnum.NUMBER ? null : value;
+    return value <= 0 ? null : value;
   }
 }
