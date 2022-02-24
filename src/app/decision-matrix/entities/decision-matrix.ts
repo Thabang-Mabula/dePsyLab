@@ -1,12 +1,13 @@
 import { Option } from './option';
-import { DefaultDataTypeValueEnum } from '../../common-items/constants/default-data-type-value-enum.enum';
 import { Criterion } from './criterion';
-import { DebugElement } from '@angular/core';
 import { DescriptiveItem } from 'src/app/common-items/data-types/descriptive-item';
 
 const OPTION_STARTING_INDEX: number = 1;
 const COLLECTION_STARTING_INDEX: number = 1;
 
+/**
+ * Decision Matrix
+ */
 export class DecisionMatrix {
   private _title: string | undefined;
   private _options: Array<Option> = new Array<Option>();
@@ -44,44 +45,47 @@ export class DecisionMatrix {
     return this._options;
   }
 
+  /**
+   * Add a new criterion to the existing criteria
+   *
+   * @param  {string} description Description of the criterion
+   */
   addCriterion(description: string): void {
     let newCriterion = new Criterion();
     newCriterion.description = description;
 
-    newCriterion.id = this.determinNewId(this.criteria);
+    newCriterion.id = this.determineNewId(this.criteria);
 
     this.criteria?.push(newCriterion);
   }
 
+  /**
+   * Add a new option to the existing options
+   *
+   * @param  {string} description Description of the option
+   */
   addOption(description: string) {
     let newOption = new Option();
     newOption.description = description;
 
-    newOption.id = this.determineNewOptionId();
+    newOption.id = this.determineNewId(this.options);
 
     this._options?.push(newOption);
   }
 
-  private determineNewOptionId(): number {
-    if (this._options.length == 0) {
-      return OPTION_STARTING_INDEX;
-    }
-
-    let maxOptionId: number = DefaultDataTypeValueEnum.NUMBER;
-    this._options.forEach((option: Option) => {
-      if (option.id! > maxOptionId!) maxOptionId = option.id!;
-    });
-
-    return ++maxOptionId;
-  }
-
-  private determinNewId(colletion: Array<DescriptiveItem>) {
-    if (this._options.length == 0) {
+  /**
+   * Determines a new id for a collection of descriptive items
+   *
+   * @param  {Array<DescriptiveItem>} colletion Collection of descriptive items
+   * @return new id
+   */
+  private determineNewId(colletion: Array<DescriptiveItem>) {
+    if (colletion.length == 0) {
       return COLLECTION_STARTING_INDEX;
     }
 
     let maxOptionId: number = Number.MIN_VALUE;
-    this._options.forEach((option: Option) => {
+    colletion.forEach((option: DescriptiveItem) => {
       if (option.id! > maxOptionId!) maxOptionId = option.id!;
     });
 
