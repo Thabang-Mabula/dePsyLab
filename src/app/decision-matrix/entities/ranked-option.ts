@@ -1,6 +1,9 @@
 import { Option } from './option';
 import { DefaultDataTypeValueEnum } from 'src/app/common-items/constants/default-data-type-value-enum.enum';
 
+/**
+ * An option with a rank and a score
+ */
 export class RankedOption {
   private _option: Option = new Option();
 
