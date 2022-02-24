@@ -9,6 +9,9 @@ import { DecisionMatrixServiceInterface } from './decision-matrix-service-interf
 @Injectable({
   providedIn: 'root',
 })
+/**
+ * Implementation of {@link DecisionMatrixAbstractService}
+ */
 export class DecisionMatrixService implements DecisionMatrixAbstractService {
   constructor() {}
   getOptionRankings(decisionId: string): Observable<RankedOption[]> {
