@@ -1,7 +1,9 @@
 import { DescriptiveItem } from '../../common-items/data-types/descriptive-item';
 import { DefaultDataTypeValueEnum } from '../../common-items/constants/default-data-type-value-enum.enum';
-import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 
+/**
+ * Option
+ */
 export class Option implements DescriptiveItem {
   private _id: number = DefaultDataTypeValueEnum.NUMBER;
   private _description: string = DefaultDataTypeValueEnum.STRING;
