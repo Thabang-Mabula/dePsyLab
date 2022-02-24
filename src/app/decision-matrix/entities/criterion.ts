@@ -1,6 +1,9 @@
 import { DescriptiveItem } from '../../common-items/data-types/descriptive-item';
 import { DefaultDataTypeValueEnum } from '../../common-items/constants/default-data-type-value-enum.enum';
 
+/**
+ * Criterion
+ */
 export class Criterion implements DescriptiveItem {
   private _id: number = DefaultDataTypeValueEnum.NUMBER;
   private _description: string = DefaultDataTypeValueEnum.STRING;
