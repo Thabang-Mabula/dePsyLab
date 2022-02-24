@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppEnum } from './decision-matrix/constants/app-enum.enum';
+import { AppEnum } from './common-items/constants/app-enum.enum';
 
 @Component({
   selector: 'app-root',

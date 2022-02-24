@@ -1,3 +1,6 @@
+/**
+ * Enum for the routes that form part of the decision matrix journey
+ */
 export enum DecisionMatrixRoutesEnum {
   START = 'start',
   CONTEXT_ROOT = 'decision-matrix',
