@@ -10,15 +10,26 @@ import { DecisionMatrixServiceHelper } from '../../utils/decision-matrix-service
   templateUrl: './results-page.component.html',
   styleUrls: ['./results-page.component.css'],
 })
+/**
+ * Component for rendering the Results page
+ */
 export class ResultsPageComponent implements OnInit {
   private _rankedOptions: Array<RankedOption> = new Array<RankedOption>();
   private _decisionMatrix: DecisionMatrix = new DecisionMatrix();
-
+  /**
+   * Constructor
+   *
+   * @param  {DecisionMatrixAbstractService} decisionMatrixService Decision Matrix Service
+   * @param  {ActivatedRoute} activatedRoute Activated route
+   */
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
     private activatedRoute: ActivatedRoute
   ) {}
 
+  /**
+   * Retrieves the ranked options for the decision matrix
+   */
   ngOnInit() {
     DecisionMatrixServiceHelper.obtainDecisionMatrixFromRoute(
       this.activatedRoute,
@@ -30,6 +41,9 @@ export class ResultsPageComponent implements OnInit {
     });
   }
 
+  /**
+   * Retrieves the ranked options for the decision matrix
+   */
   private retrievRankedOptions(): void {
     this.decisionMatrixService
       .getOptionRankings(this._decisionMatrix.id!)
@@ -41,13 +55,30 @@ export class ResultsPageComponent implements OnInit {
       });
   }
 
+  /**
+   * Get the ranked options
+   *
+   * @returs Collection of {@link RankedOption} objects
+   */
   public get rankedOptions(): Array<RankedOption> {
     return this._rankedOptions;
   }
-  public set rankedOptions(value: Array<RankedOption>) {
-    this._rankedOptions = value;
+
+  /**
+   * Ranked options
+   * 
+   * @param  {Array<RankedOption>} rankedOptions Ranked options
+   */
+  public set rankedOptions(rankedOptions: Array<RankedOption>) {
+    this._rankedOptions = rankedOptions;
   }
 
+  /**
+   * Retrieve the collection of ranked options up to a specified rank
+   * 
+   * @param rank Maximum rank of the option in the collection
+   * @returns  Ranked options up to the specified rank
+   */
   retrieveOptionsByRank(rank: number): Array<RankedOption> {
     let filteredOptions: Array<RankedOption> = new Array<RankedOption>();
     for (let rankedOption of this._rankedOptions) {
