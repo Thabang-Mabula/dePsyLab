@@ -13,7 +13,7 @@ import { DecisionMatrix } from '../../entities/decision-matrix';
 import { DecisionMatrixAbstractService } from '../../services/decision-matrix-abstract-service';
 import { DefaultDataTypeValueEnum } from '../../../common-items/constants/default-data-type-value-enum.enum';
 import { KeyEventsEnum } from 'src/app/common-items/constants/key-events-enum.enum';
-import { PageNavButtonComponent } from 'src/app/common-components/page-nav-button/page-nav-button.component';
+import { PageNavButtonComponent } from 'src/app/common-items/components/page-nav-button/page-nav-button.component';
 import { AfterViewInit } from '@angular/core';
 
 @Component({

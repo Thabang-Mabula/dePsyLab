@@ -14,7 +14,7 @@ import { Option } from '../../entities/option';
 import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
 import { DefaultDataTypeValueEnum } from '../../../common-items/constants/default-data-type-value-enum.enum';
 import { KeyEventsEnum } from 'src/app/common-items/constants/key-events-enum.enum';
-import { PageNavButtonComponent } from '../../../common-components/page-nav-button/page-nav-button.component';
+import { PageNavButtonComponent } from '../../../common-items/components/page-nav-button/page-nav-button.component';
 import { AssessOptionsComponent } from '../../components/assess-options/assess-options.component';
 
 @Component({

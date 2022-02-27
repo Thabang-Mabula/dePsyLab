@@ -11,7 +11,7 @@ import { DecisionMatrixAbstractService } from '../../services/decision-matrix-ab
 import { ParamEnum } from '../../constants/param-enum.enum';
 import { DecisionMatrix } from '../../entities/decision-matrix';
 import { DecisionMatrixRoutesEnum } from '../../constants/decision-matrix-routes-enum.enum';
-import { PageNavButtonComponent } from 'src/app/common-components/page-nav-button/page-nav-button.component';
+import { PageNavButtonComponent } from 'src/app/common-items/components/page-nav-button/page-nav-button.component';
 import { KeyEventsEnum } from '../../../common-items/constants/key-events-enum.enum';
 
 @Component({

@@ -12,7 +12,7 @@ import { DecisionMatrixAbstractService } from '../../services/decision-matrix-ab
 import { ParamEnum } from '../../constants/param-enum.enum';
 import { DecisionMatrix } from '../../entities/decision-matrix';
 import { KeyEventsEnum } from 'src/app/common-items/constants/key-events-enum.enum';
-import { PageNavButtonComponent } from 'src/app/common-components/page-nav-button/page-nav-button.component';
+import { PageNavButtonComponent } from 'src/app/common-items/components/page-nav-button/page-nav-button.component';
 import { DefaultDataTypeValueEnum } from 'src/app/common-items/constants/default-data-type-value-enum.enum';
 
 @Component({
