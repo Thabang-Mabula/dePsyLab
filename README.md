@@ -7,7 +7,6 @@
 - [Setup](#setup)
 - [Project Status](#project-status)
 - [Contact](#contact)
-<!-- * [License](#license) -->
 
 ## General Information
 
@@ -52,9 +51,3 @@ There are quite a few features that could be added, as well as <b><u>a lot</u></
 ## Contact
 
 Created by [@Thabang Mabula](https://github.com/Thabang-Mabula). Feel free to contact me.
-
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
