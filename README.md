@@ -50,4 +50,4 @@ There are quite a few features that could be added, as well as <b><u>a lot</u></
 
 ## Contact
 
-Created by [@Thabang Mabula](https://github.com/Thabang-Mabula). Feel free to contact me.
+Created by [@Thabang Mabula](https://github.com/Thabang-Mabula). Feel free to email me at txb.mabula@gmail.com.
