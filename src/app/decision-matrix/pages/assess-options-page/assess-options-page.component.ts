@@ -22,6 +22,11 @@ import { AssessOptionsComponent } from '../../components/assess-options/assess-o
   templateUrl: './assess-options-page.component.html',
   styleUrls: ['./assess-options-page.component.css'],
 })
+
+/**
+ * Component for rendering the page whether users assess the extent to which
+ * each of their options meets their specified criteria
+ */
 export class AssessOptionsPageComponent implements OnInit {
   private _decisionMatrix = new DecisionMatrix();
   private _optionIndex: number = 0;
@@ -30,12 +35,22 @@ export class AssessOptionsPageComponent implements OnInit {
   @ViewChild('calculateBtn') calculateButton!: PageNavButtonComponent;
   @ViewChild('assessOptionsComp') assessOptionsComp!: AssessOptionsComponent;
 
+  /**
+   * Constructor
+   *
+   * @param decisionMatrixService Decision Matrix Service
+   * @param activatedRoute Activate Route
+   * @param router Router
+   */
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {}
 
+  /**
+   * Retrieves the decision matrix from the service on component init
+   */
   ngOnInit() {
     DecisionMatrixServiceHelper.obtainDecisionMatrixFromRoute(
       this.activatedRoute,
@@ -78,7 +93,10 @@ export class AssessOptionsPageComponent implements OnInit {
     );
   }
 
-  submit() {
+  /**
+   * Updates the decision matrix service and navigates users to the next page
+   */
+  submit(): void {
     this.saveProgress();
     this.decisionMatrixService
       .updateDecisionMatrix(this.decisionMatrix)
@@ -87,6 +105,11 @@ export class AssessOptionsPageComponent implements OnInit {
       });
   }
 
+  /**
+   * Navigate to the next URL
+   *
+   * @param url URL to navigate to
+   */
   private navigateNext(url: string): void {
     this.router.navigateByUrl(url);
   }
@@ -96,6 +119,9 @@ export class AssessOptionsPageComponent implements OnInit {
     return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${DecisionMatrixRoutesEnum.RESULTS}?id=${id}`;
   }
 
+  /**
+   * Saves the scores that were given to the current set of criteria for a given option
+   */
   private saveProgress(): void {
     this.assessOptionsComp.saveCriteria();
   }

@@ -21,6 +21,10 @@ import { AfterViewInit } from '@angular/core';
   templateUrl: './options-page.component.html',
   styleUrls: ['./options-page.component.css'],
 })
+
+/**
+ * Component for rendering the Options Page
+ */
 export class OptionsPageComponent implements OnInit, AfterViewInit {
   decisionMatrix: DecisionMatrix = new DecisionMatrix();
   optionDescription: string = DefaultDataTypeValueEnum.STRING;
@@ -29,6 +33,13 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
   @ViewChild('nextBtn') nextButton!: PageNavButtonComponent;
   MAX_LENGTH: number = 50;
 
+  /**
+   * Constructor
+   *
+   * @param  {DecisionMatrixAbstractService} decisionMatrixService Decision Matrix Serivce
+   * @param  {ActivatedRoute} activatedRoute Acivated Route
+   * @param  {Router} router Router
+   */
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
     private activatedRoute: ActivatedRoute,
@@ -69,6 +80,9 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Navigate to the next page
+   */
   submit(): void {
     this.decisionMatrixService
       .updateDecisionMatrix(this.decisionMatrix)
@@ -77,21 +91,38 @@ export class OptionsPageComponent implements OnInit, AfterViewInit {
       });
   }
 
+  /**
+   * Add an option to the current option list
+   */
   addOption() {
     this.decisionMatrix?.addOption(this.optionDescription.trim());
 
     this.optionDescription = DefaultDataTypeValueEnum.STRING;
     this.optionDescrInput.nativeElement.focus();
   }
-
+  /**
+   * Navigate to the next URL
+   * @param  {string} url URL to navigate to
+   */
   private navigateNext(url: string): void {
     this.router.navigateByUrl(url);
   }
 
+  /**
+   * Generate the next URL
+   *
+   * @param id Decision Matrix id
+   * @returns Route to next page based on id
+   */
   private generateNextURL(id: string): string {
     return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${DecisionMatrixRoutesEnum.ASSESS_OPTIONS}?id=${id}`;
   }
 
+  /**
+   * Return true if it is valid for the user to move to the next page
+   *
+   * @returns True if it is valid for the user to move to the next page
+   */
   isValidToProceed(): boolean {
     return this.decisionMatrix.options.length > 0;
   }

@@ -20,6 +20,10 @@ import { DefaultDataTypeValueEnum } from 'src/app/common-items/constants/default
   templateUrl: './criteria-page.component.html',
   styleUrls: ['./criteria-page.component.css'],
 })
+
+/**
+ * Component for renderering the criteria page
+ */
 export class CriteriaPageComponent implements OnInit, AfterViewInit {
   criterionDescription: string = '';
   decisionMatrix: DecisionMatrix = new DecisionMatrix();
@@ -30,6 +34,13 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
   @ViewChild('nextBtn') nextButton!: PageNavButtonComponent;
   MAX_LENGTH: number = 40;
 
+  /**
+   * Constructor
+   *
+   * @param  {DecisionMatrixAbstractService} decisionMatrixService Decision matrix service
+   * @param  {ActivatedRoute} activatedRoute Actiivated route
+   * @param  {Router} router Router
+   */
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
     private activatedRoute: ActivatedRoute,
@@ -54,7 +65,10 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {}
 
-  submit() {
+  /**
+   * Submit update decision matrix and navigate user to the next page
+   */
+  submit(): void {
     this.decisionMatrixService
       .updateDecisionMatrix(this.decisionMatrix)
       .subscribe((res) => {
@@ -62,7 +76,10 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
       });
   }
 
-  addCriterion() {
+  /**
+   * Add a criterion to the existing criteria
+   */
+  addCriterion(): void {
     if (
       this.criterionDescription != null &&
       this.criterionDescription != undefined &&
@@ -74,6 +91,10 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
     this.criterionDescrInput.nativeElement.focus();
   }
 
+  /**
+   * Checks whether the user is permitted to proceed to the next page
+   * @returns True if the user is permitted to proceed
+   */
   isValidToProceed(): boolean {
     return this.decisionMatrix.criteria.length > 0;
   }
@@ -95,10 +116,21 @@ export class CriteriaPageComponent implements OnInit, AfterViewInit {
     }
   }
 
+  /**
+   * Naviate the user to a specified url
+   *
+   * @param url URL to navigate the user to
+   */
   private navigateNext(url: string): void {
     this.router.navigateByUrl(url);
   }
 
+  /**
+   * Generate the next URL
+   *
+   * @param id Decision matrix id
+   * @returns Route to the next page
+   */
   private generateNextURL(id: string): string {
     return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${DecisionMatrixRoutesEnum.OPTIONS}?id=${id}`;
   }

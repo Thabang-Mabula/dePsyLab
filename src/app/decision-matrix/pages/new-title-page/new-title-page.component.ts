@@ -19,12 +19,23 @@ import { KeyEventsEnum } from '../../../common-items/constants/key-events-enum.e
   templateUrl: './new-title-page.component.html',
   styleUrls: ['./new-title-page.component.css'],
 })
+
+/**
+ * Component for the page that prompts users to add a title for their decision
+ */
 export class NewTitlePageComponent implements OnInit, AfterViewInit {
   private _decisionMatrix: DecisionMatrix = new DecisionMatrix();
   @ViewChild('titleInput') titleInputElement!: ElementRef<HTMLInputElement>;
   @ViewChild('nextBtn') nextButton!: PageNavButtonComponent;
   MAX_LENGTH: number = 50;
 
+  /**
+   * Constructor
+   *
+   * @param  {DecisionMatrixAbstractService} decisionMatrixService Decision matrix service
+   * @param  {ActivatedRoute} activatedRoute Activated route
+   * @param  {Router} router Router
+   */
   constructor(
     private decisionMatrixService: DecisionMatrixAbstractService,
     private activatedRoute: ActivatedRoute,
@@ -54,6 +65,9 @@ export class NewTitlePageComponent implements OnInit, AfterViewInit {
     }
   }
 
+  /**
+   * Submits the title to the Decision Matrix Service
+   */
   submitTitle(): void {
     this.decisionMatrixService
       .updateDecisionMatrix(this.decisionMatrix)
@@ -62,17 +76,35 @@ export class NewTitlePageComponent implements OnInit, AfterViewInit {
       });
   }
 
+  /**
+   * Navigates to the next URL
+   * @param {string} url URL
+   */
   private navigateNext(url: string): void {
     this.router.navigateByUrl(url);
   }
 
+  /**
+   * Gets the decision matrix
+   * @returns DecisionMatrix Decision Matrix
+   */
   public get decisionMatrix(): DecisionMatrix {
     return this._decisionMatrix;
   }
+
+  /**
+   * Sets the decision matrix
+   */
   public set decisionMatrix(decisionMatrix: DecisionMatrix) {
     this._decisionMatrix = decisionMatrix;
   }
 
+  /**
+   * General the URL for the next page
+   *
+   * @param id Decision Maxtrix id
+   * @returns URL for the next page
+   */
   private generateNextURL(id: string): string {
     return `/${DecisionMatrixRoutesEnum.CONTEXT_ROOT}/${DecisionMatrixRoutesEnum.CRITERIA}?id=${id}`;
   }
