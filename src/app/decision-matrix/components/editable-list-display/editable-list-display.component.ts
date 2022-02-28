@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { DescriptiveItem } from 'src/app/common-items/data-types/descriptive-item';
+import { DescriptiveItem } from 'src/app/decision-matrix/entities/descriptive-item';
 
 @Component({
   selector: 'editable-list-display',

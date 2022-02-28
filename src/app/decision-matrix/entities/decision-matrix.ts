@@ -1,6 +1,6 @@
 import { Option } from './option';
 import { Criterion } from './criterion';
-import { DescriptiveItem } from 'src/app/common-items/data-types/descriptive-item';
+import { DescriptiveItem } from 'src/app/decision-matrix/entities/descriptive-item';
 
 const OPTION_STARTING_INDEX: number = 1;
 const COLLECTION_STARTING_INDEX: number = 1;

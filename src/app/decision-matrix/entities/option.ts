@@ -1,4 +1,4 @@
-import { DescriptiveItem } from '../../common-items/data-types/descriptive-item';
+import { DescriptiveItem } from './descriptive-item';
 import { DefaultDataTypeValueEnum } from '../../common-items/constants/default-data-type-value-enum.enum';
 
 /**
