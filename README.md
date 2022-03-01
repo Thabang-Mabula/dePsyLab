@@ -10,7 +10,7 @@
 
 ## General Information
 
-dePsyLab (pronounced kind of like "dee-sci-lab") is a small web-app intended to help users with decision making. It does this by providing a guided journey in creating a simplified decision matrix. A decision matrix is a form of analysis that prioritises options based on the extent to which they meet pre-determined criteria (visit https://www.mindtools.com/pages/article/newTED_03.htm for more info).
+dePsyLab (pronounced kind of like "dee-sci-lab") is a small web-app intended to help users with decision making. It does this by providing a guided journey through the process of creating a simplified decision matrix. A decision matrix is a form of analysis that prioritises options based on the extent to which they meet pre-determined criteria (visit https://www.mindtools.com/pages/article/newTED_03.htm for more info).
 
 This is my first, small porfolio-project written in Angular.
 
