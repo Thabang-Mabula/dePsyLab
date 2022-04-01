@@ -37,7 +37,7 @@ You'll need to have the following pre-installed on your machine before attemptin
 
 - Clone this repo
 - Navigate your terminal to the base folder where you cloned the source code
-- Install all the project's libraries by running the following command in the terminal: `npm install all`
+- Install all the project's libraries by running the following command in the terminal: `npm install`
 - To run it locally, simply run the following command in your terminal (in the same base folder): `ng serve --open`
   - The command should automatically open a tab in your default browser.
   - Otherwise, manually navigate the link specified by the Angular server using your browser of choice (it will be specified in the sentence starting with "\*\* Angular Live Development Server is listening on ...").
